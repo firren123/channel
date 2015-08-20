@@ -40,7 +40,7 @@ class LbsController extends BaseController
         $lng = RequestHelper::get('lng', 0.000000, 'float');
         $lat = RequestHelper::get('lat', 0.000000, 'float');
         $dis = RequestHelper::get('dis', 2, 'intval');
-        $shop_list = $model->getNearByShop($lng, $lat, $dis, 200);
+        $shop_list = $model->getNearByShop($lng, $lat, $dis);
         //$shop_list = $model->getNearShopPage($lng, $lat, $dis, 3, 2);
         //var_dump($shop_list);
         if (!empty($shop_list)) {
@@ -120,5 +120,19 @@ class LbsController extends BaseController
             return $this->returnJsonMsg('102', [], '参数不正确');
         }
 
+    }
+    public function actionGetSuggest()
+    {
+        $keywords = RequestHelper::get('keywords', '');
+        $data = [];
+        if (!empty($keywords)) {
+            $model = new Lbs();
+            $res = $model->getSuggest($keywords);
+            if ($res['status'] == 0) {
+                $data = ArrayHelper::getValue($res, 'data', []);
+            }
+            //var_dump($res);
+            return $this->returnJsonMsg('200', $data, 'ok');
+        }
     }
 }

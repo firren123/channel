@@ -54,6 +54,9 @@ class SmsController extends Controller
     {
         parent::init();
         $this->conn = new AMQPConnection($this->host, $this->port, $this->user, $this->pass, $this->vhost);
+        if (!$this->conn) {
+            exit('环境错误,联系管理员');
+        }
         $this->ch = $this->conn->channel();
     }
 
@@ -66,6 +69,7 @@ class SmsController extends Controller
     {
         while (1) {
             $this->_addMsg();
+            sleep(1);
         }
 
     }
@@ -84,16 +88,19 @@ class SmsController extends Controller
         $this->ch->queue_bind($queue, $exchange);
         $msg = $this->ch->basic_get($queue);
         if ($msg) {
-            $this->ch->basic_ack($msg->delivery_info['delivery_tag']);
-            $msg = json_decode($msg->body, true);
-            $msg['create_time'] = date('Y-m-d H:i:s');
-            $smsModel = new QueueSms();
-            $ret = $smsModel->insertInfo($msg);
+            $info = json_decode($msg->body, true);
+            $info['create_time'] = date('Y-m-d H:i:s');
+            $comm = @\Yii::$app->db_p500m;
+            $ret = $comm->createCommand()->insert('queue_sms', $info)->execute();
+            unset($comm);
             if ($ret) {
-                return 1;
+                $this->ch->basic_ack($msg->delivery_info['delivery_tag']);
+                echo  1;
             } else {
-                return 0;
+                $time = date('Y-m-d H:i:s');
+                file_put_contents('/tmp/sms-filed.log', $time.'|'.$msg->body."\r\n", FILE_APPEND);
             }
+
         }
     }
 }

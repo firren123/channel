@@ -46,11 +46,10 @@ class Lbs extends ActiveRecord
      * @param float  $lng      经度
      * @param float  $lat      纬度
      * @param int    $distance 最大距离
-     * @param int    $num      返回条数
      * @param string $table    查询的表
      * @return array
      */
-    public function getNearByShop($lng, $lat, $distance, $num, $table = 'location')
+    public function getNearByShop($lng, $lat, $distance, $table = 'location')
     {
         $list = [];
         $connection = \Yii::$app->mongodb;
@@ -59,7 +58,7 @@ class Lbs extends ActiveRecord
         $options = [
             'geoNear'=>$table,
             'near'=>[$lng, $lat],
-            'num'=>$num,
+          //  'num'=>$num,
             //'limit'=>30,
             'spherical'=>true,
             'maxDistance'=>$maxDistance,
@@ -186,6 +185,27 @@ class Lbs extends ActiveRecord
             $ak = \Yii::$app->params['ak'];
             $url = $baiduUrl.'?address='.$address.'&ak='.$ak.'&output=json';
             $res = CurlHelper::get($url);
+            return $res;
+        }
+        return false;
+    }
+    public function getSuggest($keywords, $region='北京')
+    {
+        if (!empty($keywords)) {
+            $baiduUrl = \Yii::$app->params['suggestUrl'];
+            $ak = \Yii::$app->params['qqak'];
+            $params =
+                [
+                    'region'=>$region,
+                    'keyword'=>$keywords,
+                    'key'=>$ak,
+                    'output'=>'json',
+                ];
+            $query = http_build_query($params);
+            $url = $baiduUrl .'?'. $query;
+           // exit();
+            $res = CurlHelper::get($url);
+
             return $res;
         }
         return false;

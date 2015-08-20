@@ -46,7 +46,7 @@ return [
         ],
         'sphinx' => [
             'class' => 'yii\sphinx\Connection',
-            'dsn' => 'mysql:host=127.0.0.1;port=9306;',
+            'dsn' => 'mysql:host=118.186.247.55;port=9306;',
             'username' => '',
             'password' => '',
         ],

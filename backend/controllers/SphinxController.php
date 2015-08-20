@@ -16,6 +16,7 @@
 namespace backend\controllers;
 
 use backend\models\i500m\Products;
+use backend\models\Lbs;
 use backend\models\ProductsRt;
 use common\helpers\RequestHelper;
 use common\vendor\Scws;
@@ -41,6 +42,7 @@ class SphinxController extends BaseController
         $cat_id = RequestHelper::get('cat_id', 0, 'intval');
         $brand_id = RequestHelper::get('brand_id', 0, 'intval');
         $map = [];
+        $map['status'] = 1;
         if (!empty($cat_id)) {
             $map['cate_first_id'] = intval($cat_id);
         }
@@ -114,5 +116,34 @@ class SphinxController extends BaseController
 
         }
         return $this->returnJsonMsg('101', [], '无效的参数id');
+    }
+    public function actionSearchShop()
+    {
+        $keywords = RequestHelper::get('keywords', '');
+        $lng = RequestHelper::get('lng', 0.000000, 'float');
+        $lat = RequestHelper::get('lat', 0.000000, 'float');
+        $dis = RequestHelper::get('dis', 2, 'intval');
+        if (!empty($keywords)) {
+            $keywords = Scws::getWords($keywords);
+        }
+        $model = new ProductsRt();
+        $map['status'] = 1;
+        $list = $model->find()->where($map)->match($keywords)->asArray()->all();
+        //根据商品id 获取商家列表
+        $product_ids = [];
+        if (!empty($list)) {
+            foreach ($list as $v) {
+                $product_ids[] = $v['id'];
+            }
+        }
+        if (!empty($product_ids)) {
+            $list = $model->find()->where($map)->match($keywords)->asArray()->all();
+        }
+
+        var_dump($list);
+        $lbs = new Lbs();
+        $shop = $lbs->getNearByShop($lng, $lat, $dis);
+        var_dump($shop);
+        return $this->returnJsonMsg('200', $list, 'ok');
     }
 }
