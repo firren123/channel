@@ -51,6 +51,7 @@ return [
             'charset'=>'utf8',
             'attributes' => [PDO::ATTR_PERSISTENT => true]
         ],
+
     ],
    // 'params' => $params,
 ];
