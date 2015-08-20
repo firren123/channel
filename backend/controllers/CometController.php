@@ -137,29 +137,34 @@ class CometController extends BaseController
 
 
         $url_clear = $this->_icomet_url_admin . "clear?cname=" . $cname;
-        $str_clear_result = $helper_zcommon->zcurl('get', $url_clear);
+        //$str_clear_result = $helper_zcommon->zcurl('get', $url_clear);
         //channel[ch1] not connected
         //ok 2
-        $arr_tmp = explode(" ", $str_clear_result);
-        if ($arr_tmp[0] != 'ok') {
-            $this->_zlog("[pub_one][clear失败][非ok]:\n" . $str_clear_result);
-            //$arr_return = array('zresult' => 0, 'zmsg' => '');
-            //echo json_encode($arr_return);
-            //return;
-        }
+        if ($str_clear_result = $helper_zcommon->zcurl('get', $url_clear)) {
+            $arr_tmp = explode(" ", $str_clear_result);
+            if ($arr_tmp[0] != 'ok') {
+                $this->_zlog("[pub_one][clear失败][非ok]:\n" . $str_clear_result);
+                //$arr_return = array('zresult' => 0, 'zmsg' => '');
+                //echo json_encode($arr_return);
+                return;
+            } else {
+                $url_pub = $this->_icomet_url_admin . "pub?cname=" . $cname . "&content=" . $content;
+                $helper_zcommon2 = new ZcommonHelper();
+                $json_pub_result = $helper_zcommon2->zcurl('get', $url_pub);
+                if ($helper_zcommon->zcheckJson($json_pub_result) === false) {
+                    $this->_zlog("[pub_one][pub失败][非json]:\n" . $json_pub_result);
+                    $arr_return = array('zresult' => 0, 'zmsg' => '');
+                    echo json_encode($arr_return);
+                    return;
+                }
 
-        $url_pub = $this->_icomet_url_admin . "pub?cname=" . $cname . "&content=" . $content;
-        $json_pub_result = $helper_zcommon->zcurl('get', $url_pub);
-        if ($helper_zcommon->zcheckJson($json_pub_result) === false) {
-            $this->_zlog("[pub_one][pub失败][非json]:\n" . $json_pub_result);
-            $arr_return = array('zresult' => 0, 'zmsg' => '');
-            echo json_encode($arr_return);
+                $this->_zlog("[pub_one][pub成功][是json]:\n" . $json_pub_result);
+                echo $json_pub_result;
+                return;
+            }
+        } else {
             return;
         }
-
-        $this->_zlog("[pub_one][pub成功][是json]:\n" . $json_pub_result);
-        echo $json_pub_result;
-        return;
     }
 
 
@@ -182,6 +187,7 @@ class CometController extends BaseController
 
         $url_pub = $this->_icomet_url_admin . "pub?cname=" . $cname . "&content=" . $content;
         $json_pub_result = $helper_zcommon->zcurl('get', $url_pub);
+        //$json_pub_result = file_get_contents($url_pub);
         if ($helper_zcommon->zcheckJson($json_pub_result) === false) {
             $this->_zlog("[pub_queue][pub失败][非json]:\n" . $json_pub_result);
             $arr_return = array('zresult' => 0, 'zmsg' => '');

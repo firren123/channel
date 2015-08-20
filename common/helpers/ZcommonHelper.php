@@ -54,10 +54,10 @@ class ZcommonHelper
         curl_setopt($ch, CURLOPT_URL, $url);
         if ($type == 'post') {
             curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($arr_post_param));
         } else {
             curl_setopt($ch, CURLOPT_POST, 0);
         }
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($arr_post_param));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $str_return = curl_exec($ch);
         curl_close($ch);
