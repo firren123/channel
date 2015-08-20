@@ -1,0 +1,14 @@
+/*
+author zy
+*/
+
+.zcss_query_aera{background-color:#F5F5F5;margin:20px 0;padding:20px 0;}
+
+.zcss_table_list{font-family:"Microsoft YaHei", "sans serif", tahoma, verdana, helvetica;width:100%;}
+.zcss_table_list th{font-weight:bold;text-align:center;color:#0088cc;}
+.zcss_table_list th,.zcss_table_list td{border:1px solid #dddddd;padding:5px;}
+.zcss_table_list td{padding:3px 2px;}
+
+.zcss_tac{text-align:center;}
+.zcss_w100{width:100%;}
+

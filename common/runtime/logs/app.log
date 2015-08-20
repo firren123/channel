@@ -1,0 +1,456 @@
+2015-05-15 09:57:17 [192.168.33.1][130][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /data/www/lintaozhisheng/web/trunk/admin/common/views/layouts/main.php' in /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(382): yii\base\View->renderFile('/data/www/linta...', Array, Object(backend\modules\admin\controllers\AdminController))
+#1 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(368): yii\base\Controller->renderContent('    <legends  s...')
+#2 /data/www/lintaozhisheng/web/trunk/admin/backend/modules/admin/controllers/AdminController.php(105): yii\base\Controller->render('add', Array)
+#3 [internal function]: backend\modules\admin\controllers\AdminController->actionAdd()
+#4 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('add', Array)
+#7 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/admin/add', Array)
+#8 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php(16): yii\base\Application->run()
+#10 {main}
+2015-05-15 09:57:14 [192.168.33.1][130][-][info][application] $_COOKIE = [
+    '_csrf' => '9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm\";}'
+    'PHPSESSID' => '1rnr5rpn5j8q6ql9hoe2ge1sk4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 130
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'admin.500mi.local.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => '_csrf=9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm%22%3B%7D; PHPSESSID=1rnr5rpn5j8q6ql9hoe2ge1sk4'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'admin.500mi.local.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php'
+    'REMOTE_PORT' => '59318'
+    'REDIRECT_URL' => '/admin/admin/add'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/admin/admin/add'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1431655034.386
+    'REQUEST_TIME' => 1431655034
+]
+2015-05-15 10:09:18 [192.168.33.1][130][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /data/www/lintaozhisheng/web/trunk/admin/common/views/layouts/main.php' in /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(382): yii\base\View->renderFile('/data/www/linta...', Array, Object(backend\modules\admin\controllers\SiteController))
+#1 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(368): yii\base\Controller->renderContent('\xE6\x88\x91\xE6\x98\xAF\xE9\xBB\x98\xE8\xAE\xA4\xE9\xA6\x96...')
+#2 /data/www/lintaozhisheng/web/trunk/admin/backend/modules/admin/controllers/SiteController.php(28): yii\base\Controller->render('index', Array)
+#3 [internal function]: backend\modules\admin\controllers\SiteController->actionIndex()
+#4 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('', Array)
+#8 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php(16): yii\base\Application->run()
+#10 {main}
+2015-05-15 10:02:59 [192.168.33.1][130][-][info][application] $_COOKIE = [
+    '_csrf' => '9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm\";}'
+    'PHPSESSID' => '1rnr5rpn5j8q6ql9hoe2ge1sk4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 130
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'admin.500mi.local.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => '_csrf=9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm%22%3B%7D; PHPSESSID=1rnr5rpn5j8q6ql9hoe2ge1sk4'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'admin.500mi.local.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php'
+    'REMOTE_PORT' => '59529'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1431655378.863
+    'REQUEST_TIME' => 1431655378
+]
+2015-05-15 10:09:22 [192.168.33.1][130][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /data/www/lintaozhisheng/web/trunk/admin/common/views/layouts/main.php' in /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(382): yii\base\View->renderFile('/data/www/linta...', Array, Object(backend\modules\admin\controllers\SiteController))
+#1 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(368): yii\base\Controller->renderContent('\xE6\x88\x91\xE6\x98\xAF\xE9\xBB\x98\xE8\xAE\xA4\xE9\xA6\x96...')
+#2 /data/www/lintaozhisheng/web/trunk/admin/backend/modules/admin/controllers/SiteController.php(28): yii\base\Controller->render('index', Array)
+#3 [internal function]: backend\modules\admin\controllers\SiteController->actionIndex()
+#4 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('', Array)
+#8 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php(16): yii\base\Application->run()
+#10 {main}
+2015-05-15 10:03:14 [192.168.33.1][130][-][info][application] $_COOKIE = [
+    '_csrf' => '9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm\";}'
+    'PHPSESSID' => '1rnr5rpn5j8q6ql9hoe2ge1sk4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 130
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'admin.500mi.local.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => '_csrf=9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm%22%3B%7D; PHPSESSID=1rnr5rpn5j8q6ql9hoe2ge1sk4'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'admin.500mi.local.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php'
+    'REMOTE_PORT' => '59541'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1431655393.998
+    'REQUEST_TIME' => 1431655393
+]
+2015-05-15 10:09:25 [192.168.33.1][130][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /data/www/lintaozhisheng/web/trunk/admin/common/views/layouts/main.php' in /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(382): yii\base\View->renderFile('/data/www/linta...', Array, Object(backend\modules\admin\controllers\SiteController))
+#1 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(368): yii\base\Controller->renderContent('\xE6\x88\x91\xE6\x98\xAF\xE9\xBB\x98\xE8\xAE\xA4\xE9\xA6\x96...')
+#2 /data/www/lintaozhisheng/web/trunk/admin/backend/modules/admin/controllers/SiteController.php(28): yii\base\Controller->render('index', Array)
+#3 [internal function]: backend\modules\admin\controllers\SiteController->actionIndex()
+#4 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('', Array)
+#8 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php(16): yii\base\Application->run()
+#10 {main}
+2015-05-15 10:04:28 [192.168.33.1][130][-][info][application] $_COOKIE = [
+    '_csrf' => '9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm\";}'
+    'PHPSESSID' => '1rnr5rpn5j8q6ql9hoe2ge1sk4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 130
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'admin.500mi.local.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => '_csrf=9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm%22%3B%7D; PHPSESSID=1rnr5rpn5j8q6ql9hoe2ge1sk4'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'admin.500mi.local.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php'
+    'REMOTE_PORT' => '59565'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1431655468.086
+    'REQUEST_TIME' => 1431655468
+]
+2015-05-15 10:11:20 [192.168.33.1][130][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /data/www/lintaozhisheng/web/trunk/admin/common/views/layouts/main.php' in /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(382): yii\base\View->renderFile('/data/www/linta...', Array, Object(backend\modules\admin\controllers\SiteController))
+#1 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(368): yii\base\Controller->renderContent('\xE6\x88\x91\xE6\x98\xAF\xE9\xBB\x98\xE8\xAE\xA4\xE9\xA6\x96...')
+#2 /data/www/lintaozhisheng/web/trunk/admin/backend/modules/admin/controllers/SiteController.php(28): yii\base\Controller->render('index', Array)
+#3 [internal function]: backend\modules\admin\controllers\SiteController->actionIndex()
+#4 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('', Array)
+#8 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php(15): yii\base\Application->run()
+#10 {main}
+2015-05-15 10:11:10 [192.168.33.1][130][-][info][application] $_COOKIE = [
+    '_csrf' => '9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm\";}'
+    'PHPSESSID' => '1rnr5rpn5j8q6ql9hoe2ge1sk4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 130
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'admin.500mi.local.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => '_csrf=9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm%22%3B%7D; PHPSESSID=1rnr5rpn5j8q6ql9hoe2ge1sk4'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'admin.500mi.local.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php'
+    'REMOTE_PORT' => '59698'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1431655870.04
+    'REQUEST_TIME' => 1431655870
+]
+2015-05-15 10:15:24 [192.168.33.1][130][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /data/www/lintaozhisheng/web/trunk/admin/common/views/layouts/main.php' in /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(382): yii\base\View->renderFile('/data/www/linta...', Array, Object(backend\modules\admin\controllers\SiteController))
+#1 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(368): yii\base\Controller->renderContent('\xE6\x88\x91\xE6\x98\xAF\xE9\xBB\x98\xE8\xAE\xA4\xE9\xA6\x96...')
+#2 /data/www/lintaozhisheng/web/trunk/admin/backend/modules/admin/controllers/SiteController.php(28): yii\base\Controller->render('index', Array)
+#3 [internal function]: backend\modules\admin\controllers\SiteController->actionIndex()
+#4 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('', Array)
+#8 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php(15): yii\base\Application->run()
+#10 {main}
+2015-05-15 10:14:58 [192.168.33.1][130][-][info][application] $_COOKIE = [
+    '_csrf' => '9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm\";}'
+    'PHPSESSID' => '1rnr5rpn5j8q6ql9hoe2ge1sk4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 130
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'admin.500mi.local.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => '_csrf=9efe0a20f442f960e6e4a23b550f492e850e0f720dd3ccf923f4302d844e55b1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220ibJBNA7i3fM6qJbSJ8pMH7SHg6JRHOm%22%3B%7D; PHPSESSID=1rnr5rpn5j8q6ql9hoe2ge1sk4'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'admin.500mi.local.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php'
+    'REMOTE_PORT' => '59786'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1431656098.272
+    'REQUEST_TIME' => 1431656098
+]
+2015-06-11 13:51:41 [192.168.33.1][130][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /data/www/lintaozhisheng/web/trunk/admin/common/views/layouts/main.php' in /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(382): yii\base\View->renderFile('/data/www/linta...', Array, Object(backend\modules\admin\controllers\SiteController))
+#1 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(368): yii\base\Controller->renderContent('\xE6\x88\x91\xE6\x98\xAF\xE9\xBB\x98\xE8\xAE\xA4\xE9\xA6\x96...')
+#2 /data/www/lintaozhisheng/web/trunk/admin/backend/modules/admin/controllers/SiteController.php(32): yii\base\Controller->render('index', Array)
+#3 [internal function]: backend\modules\admin\controllers\SiteController->actionIndex()
+#4 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('', Array)
+#8 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php(13): yii\base\Application->run()
+#10 {main}
+2015-06-11 13:51:38 [192.168.33.1][130][-][info][application] $_COOKIE = [
+    '_csrf' => '5d36213f4a910cf0d29c40f0a385b2e9b35b16060207db35841fec31f3f92931a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"-5oVMI3mcQUvGcLKFYnGKChARvFBqvEJ\";}'
+    'PHPSESSID' => 'ptm9a1kujrkjd38ikf2dnsfsv4'
+    '_identity' => '6d850d5fca02f2a88472734f791b0b648f7117e9c567533d6e88f0e774d707a6a:2:{i:0;s:9:\"_identity\";i:1;s:21:\"[130,\"4Lwk7\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 130
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'admin.500mi.local.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => '_csrf=5d36213f4a910cf0d29c40f0a385b2e9b35b16060207db35841fec31f3f92931a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22-5oVMI3mcQUvGcLKFYnGKChARvFBqvEJ%22%3B%7D; PHPSESSID=ptm9a1kujrkjd38ikf2dnsfsv4; _identity=6d850d5fca02f2a88472734f791b0b648f7117e9c567533d6e88f0e774d707a6a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A21%3A%22%5B130%2C%224Lwk7%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'admin.500mi.local.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php'
+    'REMOTE_PORT' => '51199'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1434001898.13
+    'REQUEST_TIME' => 1434001898
+]
+2015-06-11 13:53:52 [192.168.33.1][130][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /data/www/lintaozhisheng/web/trunk/admin/common/views/layouts/main.php' in /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(382): yii\base\View->renderFile('/data/www/linta...', Array, Object(backend\modules\admin\controllers\SiteController))
+#1 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(368): yii\base\Controller->renderContent('\xE6\x88\x91\xE6\x98\xAF\xE9\xBB\x98\xE8\xAE\xA4\xE9\xA6\x96...')
+#2 /data/www/lintaozhisheng/web/trunk/admin/backend/modules/admin/controllers/SiteController.php(32): yii\base\Controller->render('index', Array)
+#3 [internal function]: backend\modules\admin\controllers\SiteController->actionIndex()
+#4 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('', Array)
+#8 /data/www/lintaozhisheng/web/trunk/admin/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php(13): yii\base\Application->run()
+#10 {main}
+2015-06-11 13:53:48 [192.168.33.1][130][-][info][application] $_COOKIE = [
+    '_csrf' => '5d36213f4a910cf0d29c40f0a385b2e9b35b16060207db35841fec31f3f92931a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"-5oVMI3mcQUvGcLKFYnGKChARvFBqvEJ\";}'
+    'PHPSESSID' => 'ptm9a1kujrkjd38ikf2dnsfsv4'
+    '_identity' => '6d850d5fca02f2a88472734f791b0b648f7117e9c567533d6e88f0e774d707a6a:2:{i:0;s:9:\"_identity\";i:1;s:21:\"[130,\"4Lwk7\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 130
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'admin.500mi.local.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_COOKIE' => '_csrf=5d36213f4a910cf0d29c40f0a385b2e9b35b16060207db35841fec31f3f92931a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22-5oVMI3mcQUvGcLKFYnGKChARvFBqvEJ%22%3B%7D; PHPSESSID=ptm9a1kujrkjd38ikf2dnsfsv4; _identity=6d850d5fca02f2a88472734f791b0b648f7117e9c567533d6e88f0e774d707a6a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A21%3A%22%5B130%2C%224Lwk7%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'admin.500mi.local.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/lintaozhisheng/web/trunk/admin/backend/web/index.php'
+    'REMOTE_PORT' => '51227'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1434002028.838
+    'REQUEST_TIME' => 1434002028
+]

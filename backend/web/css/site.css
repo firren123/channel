@@ -1,0 +1,157 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+.required .col-sm-3:before {
+    content: "* ";
+    color: red;
+}
+
+/*商家管理css*/
+label{
+    font-weight: inherit;
+}
+.table-bordered > tbody > tr > th{color: #0088cc; text-align: center;}
+.table-bordered > tfoot > tr > td{vertical-align: middle;text-align: center;}
+.form-actions {
+    background-color: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 19px 20px 20px;
+    padding-left:180px;
+}
+.cancelBtn {
+    background-color: #fff;
+    border-color: #cccccc #cccccc #b3b3b3;
+    color: #000;
+}
+.cancelBtn:hover {
+    background-color: #fff;
+    border-color: #cccccc #cccccc #b3b3b3;
+    color: #000;
+}
+.active a{
+    color: #d5692b;
+}
+#two{margin-left: 10px;}
+select{border:1px solid #cccccc;border-radius:4px;}
+#search-form select{height: 34px;width:100px;}
+.pull-right .btn{padding: 4px;font-size: 12px;}
+.form-horizontal .control-label{width: 15%}
+.col-xs-2 {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    min-height: 600px;
+}
+.sku-item {
+    float: left;
+    padding-right: 20px;
+}
+.sku_group {
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    margin-top: 10px;
+    padding: 19px;
+}
+.sku_map {
+    margin-top: 10px;
+}
+.sku_model, .sku_group input {
+    margin: 10px;
+}
+.sku_map table tr td {
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.red {
+    color: red;
+}

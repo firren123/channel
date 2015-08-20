@@ -1,0 +1,1725 @@
+2015-08-18 10:24:49 [192.168.33.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "".' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#2 {main}
+2015-08-18 10:24:49 [192.168.33.1][-][-][info][application] $_SERVER = [
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '49887'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439864689.141
+    'REQUEST_TIME' => 1439864689
+]
+2015-08-18 10:28:03 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 10:28:03 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '49903'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439864883.066
+    'REQUEST_TIME' => 1439864883
+]
+2015-08-18 10:59:22 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 10:59:21 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '50496'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439866761.782
+    'REQUEST_TIME' => 1439866761
+]
+2015-08-18 10:59:25 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 10:59:24 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '50498'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439866764.622
+    'REQUEST_TIME' => 1439866764
+]
+2015-08-18 11:00:32 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 11:00:31 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '50518'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439866831.728
+    'REQUEST_TIME' => 1439866831
+]
+2015-08-18 11:04:58 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 11:04:57 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '50544'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439867097.746
+    'REQUEST_TIME' => 1439867097
+]
+2015-08-18 11:43:10 [192.168.33.1][-][-][error][yii\base\ErrorException:4096] exception 'yii\base\ErrorException' with message 'Object of class yii\base\InlineAction could not be converted to string' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:157
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#3 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#4 {main}
+2015-08-18 11:43:09 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51008'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439869389.769
+    'REQUEST_TIME' => 1439869389
+]
+2015-08-18 11:43:47 [192.168.33.1][-][-][error][yii\base\ErrorException:4096] exception 'yii\base\ErrorException' with message 'Object of class yii\base\InlineAction could not be converted to string' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:157
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#3 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#4 {main}
+2015-08-18 11:43:47 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51012'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439869427.53
+    'REQUEST_TIME' => 1439869427
+]
+2015-08-18 11:43:52 [192.168.33.1][-][-][error][yii\base\ErrorException:4096] exception 'yii\base\ErrorException' with message 'Object of class yii\base\InlineAction could not be converted to string' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:157
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#3 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#4 {main}
+2015-08-18 11:43:52 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51013'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439869432.491
+    'REQUEST_TIME' => 1439869432
+]
+2015-08-18 11:44:04 [192.168.33.1][-][-][error][yii\base\ErrorException:2] exception 'yii\base\ErrorException' with message 'var_export does not handle circular references' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:157
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(149): backend\controllers\BaseController->beforeAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#4 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#5 {main}
+2015-08-18 11:44:03 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51016'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439869443.73
+    'REQUEST_TIME' => 1439869443
+]
+2015-08-18 11:44:47 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 11:44:46 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51019'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439869486.546
+    'REQUEST_TIME' => 1439869486
+]
+2015-08-18 11:46:32 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 11:46:31 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51028'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439869591.855
+    'REQUEST_TIME' => 1439869591
+]
+2015-08-18 13:06:57 [192.168.33.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Trying to get property of non-object' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:159
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#3 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#4 {main}
+2015-08-18 13:06:57 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51358'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439874417.24
+    'REQUEST_TIME' => 1439874417
+]
+2015-08-18 13:07:34 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 13:07:16 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51361'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439874436.488
+    'REQUEST_TIME' => 1439874436
+]
+2015-08-18 13:25:56 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 13:25:38 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51728'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439875538.144
+    'REQUEST_TIME' => 1439875538
+]
+2015-08-18 13:25:57 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 13:25:56 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51734'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439875556.785
+    'REQUEST_TIME' => 1439875556
+]
+2015-08-18 13:26:25 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Remote server has closed the connection' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 13:26:03 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51734'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439875563.684
+    'REQUEST_TIME' => 1439875563
+]
+2015-08-18 13:29:03 [192.168.33.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: _uniqid' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:157
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#3 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#4 {main}
+2015-08-18 13:29:02 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51751'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439875742.505
+    'REQUEST_TIME' => 1439875742
+]
+2015-08-18 13:29:49 [192.168.33.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: uniq' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:157
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#3 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#4 {main}
+2015-08-18 13:29:49 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51782'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439875789.528
+    'REQUEST_TIME' => 1439875789
+]
+2015-08-18 13:30:55 [192.168.33.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: _uniqueCode' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:157
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#3 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#4 {main}
+2015-08-18 13:30:54 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51787'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439875854.823
+    'REQUEST_TIME' => 1439875854
+]
+2015-08-18 13:31:08 [192.168.33.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: _uniqueCode' in /data/www/mi/trunk/channel/backend/controllers/BaseController.php:157
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#3 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#4 {main}
+2015-08-18 13:31:07 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51792'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439875867.753
+    'REQUEST_TIME' => 1439875867
+]
+2015-08-18 13:51:19 [192.168.33.1][-][-][error][yii\mongodb\Exception] exception 'MongoConnectionException' with message 'Failed to connect to: 118.186.247.55:27017: Read timed out after reading 0 bytes, waited for 30.000000 seconds' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:247
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(247): MongoClient->__construct('mongodb://500m:...', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#4 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#5 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#6 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#11 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#13 {main}
+
+Next exception 'yii\mongodb\Exception' with message 'Failed to connect to: 118.186.247.55:27017: Read timed out after reading 0 bytes, waited for 30.000000 seconds' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php:252
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(168): yii\mongodb\Connection->open()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(134): yii\mongodb\Connection->selectDatabase('<span class="st...')
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2-mongodb/Connection.php(191): yii\mongodb\Connection->getDatabase()
+#3 /data/www/mi/trunk/channel/backend/models/Lbs.php(132): yii\mongodb\Connection->getCollection('<span class="st...')
+#4 /data/www/mi/trunk/channel/backend/controllers/LbsController.php(62): backend\models\Lbs->getNearShopPage('<span class="nu...', '<span class="nu...', '<span class="nu...', '<span class="nu...', '...')
+#5 [internal function]: backend\controllers\LbsController->actionNearShopPage()
+#6 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#12 {main}
+2015-08-18 13:50:49 [192.168.33.1][-][-][info][application] $_GET = [
+    'lng' => '116.53199'
+    'lat' => '39.920974'
+    'dis' => '1'
+    'page' => '1'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '51867'
+    'REDIRECT_QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REDIRECT_URL' => '/lbs/near-shop-page'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'lng=116.53199&lat=39.920974&dis=1&page=1'
+    'REQUEST_URI' => '/lbs/near-shop-page?lng=116.53199&lat=39.920974&dis=1&page=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439877049.29
+    'REQUEST_TIME' => 1439877049
+]
+2015-08-19 17:13:46 [192.168.33.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "lib/get-points".' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('lib/get-points', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#2 {main}
+2015-08-19 17:13:45 [192.168.33.1][-][-][info][application] $_GET = [
+    'address' => '润坤大厦'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '57374'
+    'REDIRECT_QUERY_STRING' => 'address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'REDIRECT_URL' => '/lib/get-points'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'REQUEST_URI' => '/lib/get-points?address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439975625.623
+    'REQUEST_TIME' => 1439975625
+]
+2015-08-19 17:13:57 [192.168.33.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "lib/get-point".' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('lib/get-point', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#2 {main}
+2015-08-19 17:13:57 [192.168.33.1][-][-][info][application] $_GET = [
+    'address' => '润坤大厦'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '57375'
+    'REDIRECT_QUERY_STRING' => 'address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'REDIRECT_URL' => '/lib/get-point'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'REQUEST_URI' => '/lib/get-point?address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439975637.026
+    'REQUEST_TIME' => 1439975637
+]
+2015-08-19 17:14:40 [192.168.33.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "lib/get-point".' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('lib/get-point', Array)
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#2 {main}
+2015-08-19 17:14:40 [192.168.33.1][-][-][info][application] $_GET = [
+    'address' => '润坤大厦'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '57378'
+    'REDIRECT_QUERY_STRING' => 'address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'REDIRECT_URL' => '/lib/get-point'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'REQUEST_URI' => '/lib/get-point?address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439975679.63
+    'REQUEST_TIME' => 1439975679
+]
+2015-08-19 17:15:00 [192.168.33.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: baiduUrl' in /data/www/mi/trunk/channel/backend/controllers/LbsController.php:108
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): ::call_user_func_array:{/data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php:55}()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#4 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#5 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#6 {main}
+2015-08-19 17:15:00 [192.168.33.1][-][-][info][application] $_GET = [
+    'address' => '润坤大厦'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '57381'
+    'REDIRECT_QUERY_STRING' => 'address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'REDIRECT_URL' => '/lbs/get-point'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'REQUEST_URI' => '/lbs/get-point?address=%E6%B6%A6%E5%9D%A4%E5%A4%A7%E5%8E%A6'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439975700.064
+    'REQUEST_TIME' => 1439975700
+]
+2015-08-19 17:27:00 [192.168.33.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: data' in /data/www/mi/trunk/channel/backend/controllers/LbsController.php:116
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): ::call_user_func_array:{/data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php:55}()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#4 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#5 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#6 {main}
+2015-08-19 17:26:59 [192.168.33.1][-][-][info][application] $_GET = [
+    'address' => '国贸'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '57463'
+    'REDIRECT_QUERY_STRING' => 'address=%E5%9B%BD%E8%B4%B8'
+    'REDIRECT_URL' => '/lbs/get-point'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'address=%E5%9B%BD%E8%B4%B8'
+    'REQUEST_URI' => '/lbs/get-point?address=%E5%9B%BD%E8%B4%B8'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439976419.852
+    'REQUEST_TIME' => 1439976419
+]
+2015-08-19 17:30:11 [192.168.33.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: ak' in /data/www/mi/trunk/channel/backend/models/Lbs.php:186
+Stack trace:
+#0 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): backend\controllers\LbsController->actionGetPoint()
+#1 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php(55): ::call_user_func_array:{/data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/InlineAction.php:55}()
+#2 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams()
+#3 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction()
+#4 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction()
+#5 /data/www/mi/trunk/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest()
+#6 /data/www/mi/trunk/channel/backend/web/index.php(15): yii\base\Application->run()
+#7 {main}
+2015-08-19 17:30:11 [192.168.33.1][-][-][info][application] $_GET = [
+    'address' => '国贸'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'channel.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en;q=0.6'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'LD_LIBRARY_PATH' => '/usr/local/apache2/lib'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.9 (Unix) PHP/5.4.36'
+    'SERVER_NAME' => 'channel.com'
+    'SERVER_ADDR' => '192.168.33.10'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.33.1'
+    'DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/data/www/mi/trunk/channel/backend/web'
+    'SERVER_ADMIN' => 'xuehuawuhen@gmail.com'
+    'SCRIPT_FILENAME' => '/data/www/mi/trunk/channel/backend/web/index.php'
+    'REMOTE_PORT' => '57517'
+    'REDIRECT_QUERY_STRING' => 'address=%E5%9B%BD%E8%B4%B8'
+    'REDIRECT_URL' => '/lbs/get-point'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'address=%E5%9B%BD%E8%B4%B8'
+    'REQUEST_URI' => '/lbs/get-point?address=%E5%9B%BD%E8%B4%B8'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1439976611.185
+    'REQUEST_TIME' => 1439976611
+]
