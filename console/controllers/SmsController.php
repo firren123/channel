@@ -75,7 +75,7 @@ class SmsController extends Controller
     }
 
     /**
-     * 简介：
+     * 简介：插入短信表
      * @author  lichenjun@iyangpin.com。
      * @return null
      */
