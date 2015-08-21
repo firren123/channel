@@ -78,7 +78,7 @@ class SmsController extends Controller
             if ($msg) {
                 $info = json_decode($msg->body, true);
                 $info['create_time'] = date('Y-m-d H:i:s');
-                $comm = @\Yii::$app->db_p500m;
+                $comm = @\Yii::$app->db_500m;
                 $ret = $comm->createCommand()->insert('queue_sms', $info)->execute();
                 if ($ret) {
                     $this->ch->basic_ack($msg->delivery_info['delivery_tag']);
