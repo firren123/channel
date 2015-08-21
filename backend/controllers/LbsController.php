@@ -124,15 +124,20 @@ class LbsController extends BaseController
     public function actionGetSuggest()
     {
         $keywords = RequestHelper::get('keywords', '');
-        $data = [];
+        $data = $suggest = [];
         if (!empty($keywords)) {
             $model = new Lbs();
             $res = $model->getSuggest($keywords);
             if ($res['status'] == 0) {
                 $data = ArrayHelper::getValue($res, 'data', []);
+                if (!empty($data)) {
+                    foreach($data as $k=>$v) {
+                        $suggest[$k] = ['title'=>$v['title'], 'address'=>$v['address']];
+                    }
+                }
             }
             //var_dump($res);
-            return $this->returnJsonMsg('200', $data, 'ok');
+            return $this->returnJsonMsg('200', $suggest, 'ok');
         }
     }
 }
