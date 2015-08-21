@@ -101,6 +101,7 @@ class SmsController extends Controller
                 file_put_contents('/tmp/sms-filed.log', $time.'|'.$msg->body."\r\n", FILE_APPEND);
             }
 
+
         }
     }
 }
