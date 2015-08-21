@@ -31,15 +31,6 @@ return [
             'password'=>'500m',
             'charset'=>'utf8',
         ],
-        'db_p500m'    => [
-            'class'=>'yii\db\Connection',
-            'dsn'=>'mysql:host=118.186.247.55;dbname=500m_new',
-            'username'=>'500m',
-            'password'=>'500m',
-            'charset'=>'utf8',
-            'attributes' => [PDO::ATTR_PERSISTENT => true]
-        ],
-
         'mongodb' => [
             'class' => 'yii\mongodb\Connection',
             'dsn' => 'mongodb://500m:trouCUs3hq1i@118.186.247.55:27017/shop',
