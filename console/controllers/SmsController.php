@@ -61,47 +61,36 @@ class SmsController extends Controller
     }
 
     /**
-     * 简介：
+     * 简介：插入短信表
      * @author  lichenjun@iyangpin.com。
      * @return null
      */
     public function actionAddMsg()
     {
-        while (1) {
-            $this->_addMsg();
-            sleep(1);
-        }
-
-    }
-
-    /**
-     * 简介：插入短信表
-     * @author  lichenjun@iyangpin.com。
-     * @return null
-     */
-    private function _addMsg()
-    {
         $exchange = 'sms_exchange';
         $queue = 'sms_queue';
-        $this->ch->queue_declare($queue, false, false, false, false);
-        $this->ch->exchange_declare($exchange, 'direct', false, false, false);
-        $this->ch->queue_bind($queue, $exchange);
-        $msg = $this->ch->basic_get($queue);
-        if ($msg) {
-            $info = json_decode($msg->body, true);
-            $info['create_time'] = date('Y-m-d H:i:s');
-            $comm = @\Yii::$app->db_p500m;
-            $ret = $comm->createCommand()->insert('queue_sms', $info)->execute();
-            unset($comm);
-            if ($ret) {
-                $this->ch->basic_ack($msg->delivery_info['delivery_tag']);
-                echo  1;
+        $m = 1;
+        while ($m) {
+            $this->ch->queue_declare($queue, false, false, false, false);
+            $this->ch->exchange_declare($exchange, 'direct', false, false, false);
+            $this->ch->queue_bind($queue, $exchange);
+            $msg = $this->ch->basic_get($queue);
+            if ($msg) {
+                $info = json_decode($msg->body, true);
+                $info['create_time'] = date('Y-m-d H:i:s');
+                $comm = @\Yii::$app->db_p500m;
+                $ret = $comm->createCommand()->insert('queue_sms', $info)->execute();
+                if ($ret) {
+                    $this->ch->basic_ack($msg->delivery_info['delivery_tag']);
+                    echo 1;
+                } else {
+                    $time = date('Y-m-d H:i:s');
+                    file_put_contents('/tmp/sms-filed.log', $time . '|' . $msg->body . "\r\n", FILE_APPEND);
+                }
             } else {
-                $time = date('Y-m-d H:i:s');
-                file_put_contents('/tmp/sms-filed.log', $time.'|'.$msg->body."\r\n", FILE_APPEND);
+                $m = 0;
             }
-
-
         }
+
     }
 }
