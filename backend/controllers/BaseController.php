@@ -58,33 +58,34 @@ class BaseController extends Controller
         }
         //file_put_contents('/tmp/app_request_param.log', "请求时间：".date('Y-m-d H:i:s')." 请求参数:". var_export($this->params, true)."\n", FILE_APPEND);
         if (!\Yii::$app->params['sign_debug']) {
+            //var_dump($this->params);
             if (!isset($this->params['appId'])) {
                 $this->returnJsonMsg('501', [], Common::C('code', '501'));
+                $this->_recordLog();
+                die();
             }
             $app_id = $this->params['appId'];
             unset($this->params['appId']);
 
             if (!isset($this->params['timestamp'])) {
                 $this->returnJsonMsg('502', [], Common::C('code', '502'));
+                $this->_recordLog();
+                die();
             }
             $timestamp = $this->params['timestamp'];
             unset($this->params['timestamp']);
 
             if (!isset($this->params['sign'])) {
                 $this->returnJsonMsg('503', [], Common::C('code', '503'));
+                $this->_recordLog();
+                die();
             }
             $sign = $this->params['sign'];
             unset($this->params['sign']);
 
-            if (!isset($this->params['dev'])) {
-                $this->returnJsonMsg('509', [], Common::C('code', '509'));
-            }
-            if (!in_array($this->params['dev'], array('1', '2', '3'))) {
-                $this->returnJsonMsg('510', [], Common::C('code', '510'));
-            }
-            unset($this->params['dev']);
             $this->_verifySign($sign, $app_id, $timestamp);       //验证签名
         }
+        //exit();
     }
     /**
      * 签名验证
@@ -97,6 +98,8 @@ class BaseController extends Controller
     {
         if ($this->_createSign($app_id, $timestamp) != $sign) {
             $this->returnJsonMsg('505', [], Common::C('code', '505'));
+            $this->_recordLog();
+            die();
         }
     }
 
@@ -109,15 +112,18 @@ class BaseController extends Controller
     private function _createSign($app_id = '', $timestamp = '')
     {
         $app_code = \Yii::$app->params['APP_CODE'];
-        if (!isset($app_code[$app_id])) {
-            $this->returnJsonMsg('506', [], Common::C('code', '506'));
+
+        if(!isset($app_code[$app_id])){
+            $this->returnJsonMsg('403', ['appId'=>$app_id], 'The appID does not exist');
         }
         $val  = '';
-        if ($this->params) {
+        if($this->params){
             $params = $this->params;
-            foreach ($params as $k=>$v) {
+            krsort($params);
+            foreach($params as $k=>$v){
                 $val .= $v;
             }
+            file_put_contents('/tmp/server_data.log', var_export($params, true), FILE_APPEND);
         }
         $sign = md5(md5(md5($app_code[$app_id].$timestamp).md5($timestamp)).md5($val));
         return $sign;
@@ -142,6 +148,10 @@ class BaseController extends Controller
         echo $ret_str;
         //\Yii::$app->end();
         //die($ret_str);
+    }
+    public function error()
+    {
+
     }
 
     /**
@@ -172,10 +182,17 @@ class BaseController extends Controller
      */
     public function afterAction($action, $result)
     {
+//        $time = microtime(true) - $this->_startTime;
+//        $action = $action->controller->id;
+//        $end = $this->_uniqueCode.'| end |'.date("Y-m-d H:i:s"). ' | time:'. $time."\n";
+//        file_put_contents('/tmp/channel.log', $end, FILE_APPEND);
+        $this->_recordLog();
+        return parent::afterAction($action, $result);
+    }
+    private function _recordLog()
+    {
         $time = microtime(true) - $this->_startTime;
-        $action = $action->controller->id;
         $end = $this->_uniqueCode.'| end |'.date("Y-m-d H:i:s"). ' | time:'. $time."\n";
         file_put_contents('/tmp/channel.log', $end, FILE_APPEND);
-        return parent::afterAction($action, $result);
     }
 }
