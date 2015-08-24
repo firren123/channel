@@ -1,4 +1,9 @@
 <?php
+
+$params = array_merge(
+
+    require(__DIR__ . '/params.php')
+);
 return [
     'id' => 'app-console',
     'basePath' => dirname(__DIR__),
@@ -45,5 +50,5 @@ return [
         ],
 
     ],
-   // 'params' => $params,
+    'params' => $params,
 ];

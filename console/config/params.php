@@ -1,4 +1,13 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'mq' => [
+        'host' => '118.186.247.55',
+        'port' => '5672',
+        'user' => '500m',
+        'pass' => 'gbjY51Rpstx',
+        'vhost' => '500m',
+        'exchange' => 'sms_exchange',
+        'queue' => 'sms_queue'
+    ],
+
 ];
