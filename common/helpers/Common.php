@@ -147,14 +147,14 @@ class Common
     public static function getDistance($distance)
     {
         $distance = number_format($distance, 3);
-        $dis = $distance.'公里';
+        $dis = $distance.'km';
         //如果大于100米 小于 1公里的话 显示为米
         if ($distance >= 0.1 & $distance < 1) {
-            $dis = ($distance * 1000).'米';
+            $dis = ($distance * 1000).'m';
         }
         //如果小于等于100米 则显示小于100m
         if ($distance < 0.1) {
-            $dis = '小于100米';
+            $dis = '小于100m';
         }
         return $dis;
     }
