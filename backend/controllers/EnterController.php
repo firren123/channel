@@ -1,6 +1,6 @@
 <?php
 /**
- * 简介1
+ * 进入队列
  *
  * PHP Version 5
  *
@@ -24,15 +24,15 @@ use PhpAmqpLib\Connection\AMQPConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
- * SmsController
+ * EnterController
  *
  * @category Channel
- * @package  SmsController
+ * @package  EnterController
  * @author   liuwei <liuwei@iyangpin.com>
  * @license  http://www.i500m.com/ license
  * @link     liuwei@iyangpin.com
  */
-class SmsController extends Controller
+class EnterController extends Controller
 {
     public $enableCsrfValidation = false;
     public $conn = null;
@@ -60,7 +60,7 @@ class SmsController extends Controller
      *
      * @return array
      */
-    public function actionGetAdd()
+    public function actionSmsAdd()
     {
         $mobile = RequestHelper::post('mobile', 0);
         $content = RequestHelper::post('content', '');
