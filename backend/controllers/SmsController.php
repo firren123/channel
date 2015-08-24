@@ -72,6 +72,7 @@ class SmsController extends Controller
         } else {
             $data['mobile'] = $mobile;
             $data['content'] = $content;
+            $data['type'] = 1;
             $exchange = 'sms_exchange';
             $queue = 'sms_queue';
             $this->ch->queue_declare($queue, false, false, false, false);
