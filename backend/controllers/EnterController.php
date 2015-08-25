@@ -56,7 +56,7 @@ class EnterController extends Controller
     }
 
     /**
-     * 短信进入队列
+     * 短信进入队列(type=1)
      *
      * @return array
      */
@@ -70,6 +70,32 @@ class EnterController extends Controller
             $data['mobile'] = $mobile;
             $data['content'] = $content;
             $data['type'] = 1;
+            $exchange = $this->mq['exchange'];
+            $queue = $this->mq['queue'];
+            $this->ch->queue_declare($queue, false, false, false, false);
+            $this->ch->exchange_declare($exchange, 'direct', false, false, false);
+            $this->ch->queue_bind($queue, $exchange);
+            $msg = new AMQPMessage(json_encode($data));
+            $this->ch->basic_publish($msg, "", $queue);
+            $this->ch->close();
+            echo json_encode(['code' => '200', 'data' => $data, 'msg' => '成功']);
+        }
+    }
+    /**
+     * 订单进入队列(type=2)
+     *
+     * @return array
+     */
+    public function actionOrderAdd()
+    {
+        $order_sn = RequestHelper::get('order_sn', 0);
+        $content = RequestHelper::get('content', '');
+        if (empty($content) and $order_sn==0) {
+            echo json_encode(['code' => '102', 'data' => '', 'msg' => '参数错误']);
+        } else {
+            $data['order_sn'] = $order_sn;
+            $data['content'] = $content;
+            $data['type'] = 2;
             $exchange = $this->mq['exchange'];
             $queue = $this->mq['queue'];
             $this->ch->queue_declare($queue, false, false, false, false);
