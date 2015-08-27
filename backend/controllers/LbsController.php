@@ -138,6 +138,11 @@ class LbsController extends BaseController
                         if (isset($location['status']) && $location['status'] == 0) {
                             $v['location'] = ArrayHelper::getValue($location, 'result.0', []);
                         }
+                       // var_dump($v['location']);exit();
+
+                        $v['location']['x'] = floatval(number_format($v['location']['x'],6));
+                        $v['location']['y'] = floatval(number_format($v['location']['y'],6));
+
                         $suggest[$k] = [
                             'title'=>$v['title'],
                             'address'=>$v['address'],
