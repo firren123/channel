@@ -181,7 +181,7 @@ class Lbs extends ActiveRecord
     public function getPointByAddress($address)
     {
         if (!empty($address)) {
-            $baiduUrl = \Yii::$app->params['baiduUrl'];
+            $baiduUrl = \Yii::$app->params['baiduUrl'].'geocoder/v2/';
             $ak = \Yii::$app->params['ak'];
             $url = $baiduUrl.'?address='.$address.'&ak='.$ak.'&output=json';
             $res = CurlHelper::get($url);
@@ -198,6 +198,7 @@ class Lbs extends ActiveRecord
                 [
                     'region'=>$region,
                     'keyword'=>$keywords,
+                    'region_fix'=>1,
                     'key'=>$ak,
                     'output'=>'json',
                 ];
@@ -209,6 +210,23 @@ class Lbs extends ActiveRecord
             return $res;
         }
         return false;
+    }
+    public function convertToBaidu($lng, $lat)
+    {
+        $baiduUrl = \Yii::$app->params['baiduUrl'].'geoconv/v1/';
+        $ak = \Yii::$app->params['ak'];
+        $params =
+            [
+                'coords'=>$lng.','.$lat,
+                'from'=>3,
+                'to'=>5,
+                'ak'=>$ak,
+            ];
+        $query = http_build_query($params);
+        $url = $baiduUrl .'?'. $query;
+        $res = CurlHelper::get($url);
+        return $res;
+
     }
 
 }
