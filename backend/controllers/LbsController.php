@@ -140,8 +140,8 @@ class LbsController extends BaseController
                         }
                        // var_dump($v['location']);exit();
 
-                        $v['location']['x'] = floatval(number_format($v['location']['x'],6));
-                        $v['location']['y'] = floatval(number_format($v['location']['y'],6));
+                        $v['location']['x'] = number_format($v['location']['x'],6);
+                        $v['location']['y'] = number_format($v['location']['y'],6);
 
                         $suggest[$k] = [
                             'title'=>$v['title'],
