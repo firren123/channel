@@ -37,7 +37,7 @@ return [
     'verify_code_timeout'   => 60*60,            //用户短信验证码有效期
     'sign_debug'      =>true,                       //false = 开启验证 true 关闭验证
 
-    'baiduUrl'=>'http://api.map.baidu.com/geocoder/v2/',
+    'baiduUrl'=>'http://api.map.baidu.com/',
     'suggestionUrl'=>'http://api.map.baidu.com/place/v2/suggestion',
     'suggestUrl'=>'http://apis.map.qq.com/ws/place/v1/suggestion/',
     'ak'=>'733971E4Af9f4b00c6839e27fec9b1a0',
