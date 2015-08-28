@@ -7,9 +7,9 @@ Thumbs.db
 # phpunit itseif is not needed
 phpunit.phar
 # runtime
-/backend/runtime/
-/console/runtime/
-/backend/assets/
+runtime/
+web/assets/
 
 # mac
 .DS_Store 
+
