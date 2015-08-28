@@ -124,15 +124,30 @@ class LbsController extends BaseController
     public function actionGetSuggest()
     {
         $keywords = RequestHelper::get('keywords', '');
+        $province = RequestHelper::get('province', '北京市');
         $data = $suggest = [];
         if (!empty($keywords)) {
             $model = new Lbs();
-            $res = $model->getSuggest($keywords);
+            $res = $model->getSuggest($keywords, $province);
             if ($res['status'] == 0) {
                 $data = ArrayHelper::getValue($res, 'data', []);
                 if (!empty($data)) {
                     foreach($data as $k=>$v) {
-                        $suggest[$k] = ['title'=>$v['title'], 'address'=>$v['address']];
+                        $location = $model->convertToBaidu($v['location']['lng'], $v['location']['lat']);
+                       // var_dump($location);exit();
+                        if (isset($location['status']) && $location['status'] == 0) {
+                            $v['location'] = ArrayHelper::getValue($location, 'result.0', []);
+                        }
+                       // var_dump($v['location']);exit();
+
+                        $v['location']['x'] = number_format($v['location']['x'],6);
+                        $v['location']['y'] = number_format($v['location']['y'],6);
+
+                        $suggest[$k] = [
+                            'title'=>$v['title'],
+                            'address'=>$v['address'],
+                            'location'=>$v['location'],
+                        ];
                     }
                 }
             }

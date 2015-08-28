@@ -32,7 +32,7 @@ use PhpAmqpLib\Message\AMQPMessage;
  * @license  http://www.i500m.com/ license
  * @link     liuwei@iyangpin.com
  */
-class EnterController extends Controller
+class EnterController extends BaseController
 {
     public $enableCsrfValidation = false;
     public $conn = null;
@@ -89,12 +89,16 @@ class EnterController extends Controller
     public function actionOrderAdd()
     {
         $order_sn = RequestHelper::get('order_sn', 0);
-        $content = RequestHelper::get('content', '');
-        if (empty($content) and $order_sn==0) {
+        $user_id = RequestHelper::get('user_id', 0);
+        $yhbh = RequestHelper::get('yhbh', 0);
+        $money = RequestHelper::get('money', 0);
+        if (empty($content) and $money==0 and $yhbh==0 and $user_id==0) {
             echo json_encode(['code' => '102', 'data' => '', 'msg' => '参数错误']);
         } else {
             $data['order_sn'] = $order_sn;
-            $data['content'] = $content;
+            $data['yhbh'] = $yhbh;
+            $data['user_id'] = $user_id;
+            $data['money'] = $money;
             $data['type'] = 2;
             $exchange = $this->mq['exchange'];
             $queue = $this->mq['queue'];
