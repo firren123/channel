@@ -32,7 +32,7 @@ use PhpAmqpLib\Message\AMQPMessage;
  * @license  http://www.i500m.com/ license
  * @link     liuwei@iyangpin.com
  */
-class EnterController extends Controller
+class EnterController extends BaseController
 {
     public $enableCsrfValidation = false;
     public $conn = null;
