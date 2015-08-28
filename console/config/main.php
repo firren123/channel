@@ -9,6 +9,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'gii'],
     'controllerNamespace' => 'console\controllers',
+    'timeZone'=>'Asia/Chongqing',
     'modules' => [
         'gii' => 'yii\gii\Module',
     ],

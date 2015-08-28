@@ -18,6 +18,9 @@
 
 namespace console\controllers;
 
+use console\models\i500m\ChinaepayLog;
+use console\models\i500m\OrderChinaepay;
+use linslin\yii2\curl\Curl;
 use yii\console\Controller;
 use console\models\i500m\QueueSms;
 use PhpAmqpLib\Connection\AMQPConnection;
@@ -72,7 +75,7 @@ class ChannelController extends Controller
             if ($msg) {
                 $info = json_decode($msg->body, true);
                 switch ($info['type']) {
-                case 1:
+                case 1: //发送短信
                     $info['create_time'] = date('Y-m-d H:i:s');
                     unset($info['type']);
                     $comm = @\Yii::$app->db_500m;
@@ -85,7 +88,49 @@ class ChannelController extends Controller
                         file_put_contents('/tmp/sms-filed.log', $time . '|' . $msg->body . "\r\n", FILE_APPEND);
                     }
                     break;
-
+                case 2: //调用电网接口
+                    unset($info['type']);
+                    $order_sn = $info['order_sn'];
+                    unset($info['order_sn']);
+                    $info['userid'] = $info['user_id'];
+                    unset($info['user_id']);
+                    $info['timestamp'] = time();
+                    $info['sign'] = $this->_signSocial($info);
+                    $info['appId'] = 'I500_SOCIAL';
+                    $info['dev'] = 4;
+                    $curl = new Curl();
+                    $url = \Yii::$app->params['socialUrl'].'/v1/vas/payznb';
+                    $response = $curl->reset()
+                        ->setOption(
+                            CURLOPT_POSTFIELDS,
+                            http_build_query($info
+                            ))
+                        ->post($url);
+                    $response = json_decode($response, true);
+                    $ChinaepayLogModel = new ChinaepayLog();
+                    $data = [];
+                    $data['order_sn'] = $order_sn;
+                    $data['price']    = $info['money'];
+                    $data['type']     = 1;
+                    $data['create_time'] = date('Y-m-d H:i:s');
+                    if($response['code'] == 1){
+                        $data['serial_sn'] = $response['data']['orderid'];
+                        $data['result_code'] = 200;
+                        $data['remarks'] = '充值成功';
+                    }else{
+                        $data['serial_sn'] = '';
+                        $data['result_code'] = $response['msg'];
+                        $data['remarks'] = '充值失败';
+                    }
+                    $r = $ChinaepayLogModel->insertInfo($data);
+                    $orderChunaepayModel = new OrderChinaepay();
+                    $data_info = [];
+                    $data_info['handle_time'] = date('Y-m-d H:i:s');
+                    $data_info['handle_status'] = $response['code'] == 1?1:2;
+                    $orderChunaepayModel->updateInfo($data_info, ['order_sn'=>$order_sn]);
+                    $this->ch->basic_ack($msg->delivery_info['delivery_tag']);
+                    file_put_contents('/tmp/social_response.log', $url."|结果".$response."\n\r", FILE_APPEND);
+                    break;
                 default:
 
                     break;
@@ -95,5 +140,24 @@ class ChannelController extends Controller
             }
         }
 
+    }
+
+    /**
+     * 简介：生成sign
+     * @author  lichenjun@iyangpin.com。
+     * @param array $params 数组
+     * @return string
+     */
+    private function _signSocial($params)
+    {
+        //$params 是传递的参数
+        $app_code = 'DKJA@(SL)RssMAKDKas!L';
+        $timestamp = $params['timestamp'];
+        unset($params['timestamp']);
+        $val = '';
+        foreach ($params as $k=>$v) {
+            $val .= $v;
+        }
+        return $sign = md5(md5(md5($app_code.$timestamp).md5($timestamp)).md5($val));
     }
 }
