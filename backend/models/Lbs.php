@@ -29,6 +29,7 @@ use common\helpers\Common;
 use yii\helpers\ArrayHelper;
 use yii\mongodb\ActiveRecord;
 use common\helpers\CurlHelper;
+use yii\mongodb\Query;
 
 class Lbs extends ActiveRecord
 {
@@ -227,6 +228,45 @@ class Lbs extends ActiveRecord
         $res = CurlHelper::get($url);
         return $res;
 
+    }
+
+    /**
+     * 根据坐标和商家id 判断这个位置是否在商家的服务范围之内
+     * @param float  $lng     经度
+     * @param float  $lat     纬度
+     * @param string $shop_id 商家id
+     * @return bool
+     */
+    public function checkAddress($lng, $lat, $shop_id)
+    {
+
+        $query = new Query();
+
+        $info = $query->from('location')->where(['shop_id'=>$shop_id])->one();
+        //var_dump($info);
+        if (empty($info)) {
+            return false;
+        }
+        $connection = \Yii::$app->mongodb;
+        $db = $connection->getDatabase('shop');
+        $maxDistance = $info['max_dis']/6371;
+        $options = [
+            'geoNear'=>'location',
+            'near'=>[$lng, $lat],
+            //  'num'=>$num,
+            //'limit'=>30,
+            'spherical'=>true,
+            'maxDistance'=>$maxDistance,
+            'distanceMultiplier'=>6371,
+            'query'=>['shop_id'=>$shop_id, 'status'=>'2']
+        ];
+        $near = $db->executeCommand($options);
+        //var_dump($near['results']);
+        if (!empty($near['results'])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

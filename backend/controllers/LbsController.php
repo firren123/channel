@@ -121,6 +121,11 @@ class LbsController extends BaseController
         }
 
     }
+
+    /**
+     * 获取搜索建议词
+     * @return array
+     */
     public function actionGetSuggest()
     {
         $keywords = RequestHelper::get('keywords', '');
@@ -153,6 +158,26 @@ class LbsController extends BaseController
             }
             //var_dump($res);
             return $this->returnJsonMsg('200', $suggest, 'ok');
+        }
+    }
+
+    /**
+     * 检查是否在用户服务范围之内
+     * @return array
+     */
+    public function actionCheckAddress()
+    {
+        $model = new Lbs();
+        $lng = RequestHelper::get('lng', 0.000000, 'float');
+        $lat = RequestHelper::get('lat', 0.000000, 'float');
+        $shop_id = RequestHelper::get('shop_id', "0");
+        $res = $model->checkAddress($lng, $lat, $shop_id);
+        //$shop_list = $model->getNearShopPage($lng, $lat, $dis, 3, 2);
+        //var_dump($shop_list);
+        if (!empty($res)) {
+            return $this->returnJsonMsg('200', [], '此地址在服务范围之内');
+        } else {
+            return $this->returnJsonMsg('101', [], '此地址不在服务范围之内！');
         }
     }
 }
