@@ -212,21 +212,25 @@ class Lbs extends ActiveRecord
         }
         return false;
     }
-    public function convertToBaidu($lng, $lat)
+    public function convertToBaidu($lng, $lat, $type = 3)
     {
         $baiduUrl = \Yii::$app->params['baiduUrl'].'geoconv/v1/';
         $ak = \Yii::$app->params['ak'];
         $params =
             [
                 'coords'=>$lng.','.$lat,
-                'from'=>3,
+                'from'=>$type,
                 'to'=>5,
                 'ak'=>$ak,
             ];
         $query = http_build_query($params);
         $url = $baiduUrl .'?'. $query;
         $res = CurlHelper::get($url);
-        return $res;
+        $location = [];
+        if (isset($res['status']) && $res['status'] == 0) {
+            $location = ArrayHelper::getValue($res, 'result.0', []);
+        }
+        return $location;
 
     }
 
@@ -267,6 +271,29 @@ class Lbs extends ActiveRecord
         } else {
             return false;
         }
+    }
+    public function getPoi($lng, $lat)
+    {
+        $baiduUrl = \Yii::$app->params['baiduUrl'].'geocoder/v2/';
+        $ak = \Yii::$app->params['ak'];
+        $params =
+            [
+                'location'=>$lat.','.$lng,
+                'output'=>'json',
+                'pois'=>1,
+                'ak'=>$ak,
+            ];
+        $query = http_build_query($params);
+
+        $url = $baiduUrl .'?'. $query;
+        $res = CurlHelper::get($url);
+        if (isset($res['result']['pois'])) {
+            return ArrayHelper::getValue($res['result'], 'pois.0.name', '');
+           // return $res['result']['pois'][0];
+        } elseif (isset($res['result']['pois'])) {
+            return ArrayHelper::getValue($res['result'], 'addressComponent.street', '');
+        }
+        //var_dump($res);
     }
 
 }

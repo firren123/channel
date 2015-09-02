@@ -136,22 +136,24 @@ class LbsController extends BaseController
             $res = $model->getSuggest($keywords, $province);
             if ($res['status'] == 0) {
                 $data = ArrayHelper::getValue($res, 'data', []);
+                $pos = [];
+                //var_dump($data);
                 if (!empty($data)) {
                     foreach($data as $k=>$v) {
                         $location = $model->convertToBaidu($v['location']['lng'], $v['location']['lat']);
                        // var_dump($location);exit();
-                        if (isset($location['status']) && $location['status'] == 0) {
-                            $v['location'] = ArrayHelper::getValue($location, 'result.0', []);
-                        }
-                       // var_dump($v['location']);exit();
 
-                        $v['location']['x'] = number_format($v['location']['x'],6);
-                        $v['location']['y'] = number_format($v['location']['y'],6);
+                       // var_dump($v['location']);exit();
+                        if (!empty($location)) {
+                            $pos['x'] = number_format($location['x'], 6);
+                            $pos['y'] = number_format($location['y'], 6);
+                        }
+
 
                         $suggest[$k] = [
                             'title'=>$v['title'],
                             'address'=>$v['address'],
-                            'location'=>$v['location'],
+                            'location'=>$pos,
                         ];
                     }
                 }
@@ -160,7 +162,6 @@ class LbsController extends BaseController
             return $this->returnJsonMsg('200', $suggest, 'ok');
         }
     }
-
     /**
      * 检查是否在用户服务范围之内
      * @return array
@@ -178,6 +179,35 @@ class LbsController extends BaseController
             return $this->returnJsonMsg('200', [], '此地址在服务范围之内');
         } else {
             return $this->returnJsonMsg('101', [], '此地址不在服务范围之内！');
+        }
+    }
+    /**
+     * 根据gps坐标 或者百度坐标获取poi
+     *  type 1 百度 2 gps
+     * @return array
+     */
+    public function actionGetPoi()
+    {
+        $model = new Lbs();
+        $lng = RequestHelper::get('lng', 0.000000, 'float');
+        $lat = RequestHelper::get('lat', 0.000000, 'float');
+        $type = RequestHelper::get('type', 1, 'intval');
+        if (in_array($type,[1, 2])) {
+            if ($type == 2) {
+
+                $location = $model->convertToBaidu($lng, $lat, 1);
+                if (!empty($location)) {
+                    $lng = number_format($location['x'], 6);
+                    $lat = number_format($location['y'], 6);
+                }
+            }
+
+        }
+        $name = $model->getPoi($lng, $lat);
+        if (!empty($name)) {
+            return $this->returnJsonMsg('200', ['name'=>$name], '位置获取成功');
+        } else {
+            return $this->returnJsonMsg('404', [], '暂无数据！');
         }
     }
 }
