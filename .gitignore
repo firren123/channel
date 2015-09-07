@@ -9,6 +9,7 @@ phpunit.phar
 # runtime
 runtime/
 web/assets/
+*/runtime/
 
 # mac
 .DS_Store 
