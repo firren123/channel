@@ -29,6 +29,7 @@ use common\helpers\Common;
 use yii\helpers\ArrayHelper;
 use yii\mongodb\ActiveRecord;
 use common\helpers\CurlHelper;
+use yii\mongodb\Query;
 
 class Lbs extends ActiveRecord
 {
@@ -181,7 +182,7 @@ class Lbs extends ActiveRecord
     public function getPointByAddress($address)
     {
         if (!empty($address)) {
-            $baiduUrl = \Yii::$app->params['baiduUrl'];
+            $baiduUrl = \Yii::$app->params['baiduUrl'].'geocoder/v2/';
             $ak = \Yii::$app->params['ak'];
             $url = $baiduUrl.'?address='.$address.'&ak='.$ak.'&output=json';
             $res = CurlHelper::get($url);
@@ -198,6 +199,7 @@ class Lbs extends ActiveRecord
                 [
                     'region'=>$region,
                     'keyword'=>$keywords,
+                    'region_fix'=>1,
                     'key'=>$ak,
                     'output'=>'json',
                 ];
@@ -209,6 +211,89 @@ class Lbs extends ActiveRecord
             return $res;
         }
         return false;
+    }
+    public function convertToBaidu($lng, $lat, $type = 3)
+    {
+        $baiduUrl = \Yii::$app->params['baiduUrl'].'geoconv/v1/';
+        $ak = \Yii::$app->params['ak'];
+        $params =
+            [
+                'coords'=>$lng.','.$lat,
+                'from'=>$type,
+                'to'=>5,
+                'ak'=>$ak,
+            ];
+        $query = http_build_query($params);
+        $url = $baiduUrl .'?'. $query;
+        $res = CurlHelper::get($url);
+        $location = [];
+        if (isset($res['status']) && $res['status'] == 0) {
+            $location = ArrayHelper::getValue($res, 'result.0', []);
+        }
+        return $location;
+
+    }
+
+    /**
+     * 根据坐标和商家id 判断这个位置是否在商家的服务范围之内
+     * @param float  $lng     经度
+     * @param float  $lat     纬度
+     * @param string $shop_id 商家id
+     * @return bool
+     */
+    public function checkAddress($lng, $lat, $shop_id)
+    {
+
+        $query = new Query();
+
+        $info = $query->from('location')->where(['shop_id'=>$shop_id])->one();
+        //var_dump($info);
+        if (empty($info)) {
+            return false;
+        }
+        $connection = \Yii::$app->mongodb;
+        $db = $connection->getDatabase('shop');
+        $maxDistance = $info['max_dis']/6371;
+        $options = [
+            'geoNear'=>'location',
+            'near'=>[$lng, $lat],
+            //  'num'=>$num,
+            //'limit'=>30,
+            'spherical'=>true,
+            'maxDistance'=>$maxDistance,
+            'distanceMultiplier'=>6371,
+            'query'=>['shop_id'=>$shop_id, 'status'=>'2']
+        ];
+        $near = $db->executeCommand($options);
+        //var_dump($near['results']);
+        if (!empty($near['results'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function getPoi($lng, $lat)
+    {
+        $baiduUrl = \Yii::$app->params['baiduUrl'].'geocoder/v2/';
+        $ak = \Yii::$app->params['ak'];
+        $params =
+            [
+                'location'=>$lat.','.$lng,
+                'output'=>'json',
+                'pois'=>1,
+                'ak'=>$ak,
+            ];
+        $query = http_build_query($params);
+
+        $url = $baiduUrl .'?'. $query;
+        $res = CurlHelper::get($url);
+        if (isset($res['result']['pois'])) {
+            return ArrayHelper::getValue($res['result'], 'pois.0.name', '');
+           // return $res['result']['pois'][0];
+        } elseif (isset($res['result']['pois'])) {
+            return ArrayHelper::getValue($res['result'], 'addressComponent.street', '');
+        }
+        //var_dump($res);
     }
 
 }

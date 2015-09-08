@@ -20,13 +20,6 @@ return [
     'appKey' => 'UQJKSsa!@7AJk^&asDIFHn',
     'access_token'=>'fb54f3c5992b96d001bb16e8e92d968d',
 
-    'fast_dfs' =>[
-        'ip_addr'=>"118.186.247.55",
-        'port'=>'23000',
-        'sock'=>-1,
-        'store_path_index'=>0,
-    ],
-
     'COMPANY_ID' => 28,
     'code'        => require(__DIR__ . '/code.php'),
     'appId'       => 'I500_CHANNEL',
@@ -42,14 +35,27 @@ return [
     'mobilePreg'      => '/^1[34587][0-9]{9}$/',      //Mobile 验证规则
     'token_timeout'   => 7*24*60*60,                  //用户登陆token有效期
     'verify_code_timeout'   => 60*60,            //用户短信验证码有效期
-    'sign_debug'      =>true,                       //false = 开启验证 true 关闭验证
+    'sign_debug'      =>false,                       //false = 开启验证 true 关闭验证
 
-    'baiduUrl'=>'http://api.map.baidu.com/geocoder/v2/',
+    'baiduUrl'=>'http://api.map.baidu.com/',
     'suggestionUrl'=>'http://api.map.baidu.com/place/v2/suggestion',
     'suggestUrl'=>'http://apis.map.qq.com/ws/place/v1/suggestion/',
     'ak'=>'733971E4Af9f4b00c6839e27fec9b1a0',
     'qqak'=>'GDPBZ-4KURD-2U24D-P2JJM-NRGL6-MHFLQ',
     'icomet_url_admin' => 'http://channel.test.i500m.com/icometa/',
+    //达达快递
+    'dadaUrl' => 'http://public.ga.dev.imdada.cn', //public.imdada.cn
+    'dadaAppKey'=>'dada1dbe3d32305c295b',
+
+    'mq' => [
+        'host' => '118.186.247.55',
+        'port' => '5672',
+        'user' => '500m',
+        'pass' => 'gbjY51Rpstx',
+        'vhost' => '500m',
+        'exchange' => 'sms_exchange',
+        'queue' => 'sms_queue'
+    ],
 
 ];
 

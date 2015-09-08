@@ -9,7 +9,14 @@ phpunit.phar
 # runtime
 runtime/
 web/assets/
+<<<<<<< HEAD
 
 # mac
 .DS_Store
+=======
+*/runtime/
+
+# mac
+.DS_Store 
+>>>>>>> master
 

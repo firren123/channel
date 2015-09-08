@@ -1,6 +1,6 @@
 <?php
 /**
- * 简介1
+ * 进入队列
  *
  * PHP Version 5
  *
@@ -24,15 +24,15 @@ use PhpAmqpLib\Connection\AMQPConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
- * SmsController
+ * EnterController
  *
  * @category Channel
- * @package  SmsController
+ * @package  EnterController
  * @author   liuwei <liuwei@iyangpin.com>
  * @license  http://www.i500m.com/ license
  * @link     liuwei@iyangpin.com
  */
-class SmsController extends BaseController
+class EnterController extends BaseController
 {
     public $enableCsrfValidation = false;
     public $conn = null;
@@ -56,11 +56,11 @@ class SmsController extends BaseController
     }
 
     /**
-     * 短信进入队列
+     * 短信进入队列(type=1)
      *
      * @return array
      */
-    public function actionGetAdd()
+    public function actionSmsAdd()
     {
         $mobile = RequestHelper::post('mobile', 0);
         $content = RequestHelper::post('content', '');
@@ -70,6 +70,36 @@ class SmsController extends BaseController
             $data['mobile'] = $mobile;
             $data['content'] = $content;
             $data['type'] = 1;
+            $exchange = $this->mq['exchange'];
+            $queue = $this->mq['queue'];
+            $this->ch->queue_declare($queue, false, false, false, false);
+            $this->ch->exchange_declare($exchange, 'direct', false, false, false);
+            $this->ch->queue_bind($queue, $exchange);
+            $msg = new AMQPMessage(json_encode($data));
+            $this->ch->basic_publish($msg, "", $queue);
+            $this->ch->close();
+            echo json_encode(['code' => '200', 'data' => $data, 'msg' => '成功']);
+        }
+    }
+    /**
+     * 订单进入队列(type=2)
+     *
+     * @return array
+     */
+    public function actionOrderAdd()
+    {
+        $order_sn = RequestHelper::get('order_sn', 0);
+        $user_id = RequestHelper::get('user_id', 0);
+        $yhbh = RequestHelper::get('yhbh', 0);
+        $money = RequestHelper::get('money', 0);
+        if (empty($content) and $money==0 and $yhbh==0 and $user_id==0) {
+            echo json_encode(['code' => '102', 'data' => '', 'msg' => '参数错误']);
+        } else {
+            $data['order_sn'] = $order_sn;
+            $data['yhbh'] = $yhbh;
+            $data['user_id'] = $user_id;
+            $data['money'] = $money;
+            $data['type'] = 2;
             $exchange = $this->mq['exchange'];
             $queue = $this->mq['queue'];
             $this->ch->queue_declare($queue, false, false, false, false);

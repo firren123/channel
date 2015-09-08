@@ -1,9 +1,15 @@
 <?php
+
+$params = array_merge(
+
+    require(__DIR__ . '/params.php')
+);
 return [
     'id' => 'app-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'gii'],
     'controllerNamespace' => 'console\controllers',
+    'timeZone'=>'Asia/Chongqing',
     'modules' => [
         'gii' => 'yii\gii\Module',
     ],
@@ -45,5 +51,5 @@ return [
         ],
 
     ],
-   // 'params' => $params,
+    'params' => $params,
 ];
