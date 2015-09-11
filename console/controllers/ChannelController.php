@@ -22,7 +22,6 @@ use console\models\i500m\ChinaepayLog;
 use console\models\i500m\OrderChinaepay;
 use linslin\yii2\curl\Curl;
 use yii\console\Controller;
-use console\models\i500m\QueueSms;
 use PhpAmqpLib\Connection\AMQPConnection;
 
 /**
@@ -102,22 +101,23 @@ class ChannelController extends Controller
                     $url = \Yii::$app->params['socialUrl'].'/v1/vas/payznb';
                     $response = $curl->reset()
                         ->setOption(
-                            CURLOPT_POSTFIELDS,
-                            http_build_query($info
-                            ))
+                            CURLOPT_POSTFIELDS, http_build_query(
+                                $info
+                            )
+                        )
                         ->post($url);
                     $response = json_decode($response, true);
                     $ChinaepayLogModel = new ChinaepayLog();
                     $data = [];
                     $data['order_sn'] = $order_sn;
-                    $data['price']    = $info['money'];
-                    $data['type']     = 1;
+                    $data['price'] = $info['money'];
+                    $data['type'] = 1;
                     $data['create_time'] = date('Y-m-d H:i:s');
-                    if($response['code'] == 1){
+                    if ($response['code'] == 1) {
                         $data['serial_sn'] = $response['data']['orderid'];
                         $data['result_code'] = 200;
                         $data['remarks'] = '充值成功';
-                    }else{
+                    } else {
                         $data['serial_sn'] = '';
                         $data['result_code'] = $response['msg'];
                         $data['remarks'] = '充值失败';
@@ -155,7 +155,7 @@ class ChannelController extends Controller
         $timestamp = $params['timestamp'];
         unset($params['timestamp']);
         $val = '';
-        foreach ($params as $k=>$v) {
+        foreach ($params as $k => $v) {
             $val .= $v;
         }
         return $sign = md5(md5(md5($app_code.$timestamp).md5($timestamp)).md5($val));

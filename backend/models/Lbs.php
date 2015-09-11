@@ -253,7 +253,8 @@ class Lbs extends ActiveRecord
         }
         $connection = \Yii::$app->mongodb;
         $db = $connection->getDatabase('shop');
-        $maxDistance = $info['max_dis']/6371;
+        $max_dis = ArrayHelper::getValue($info, 'max_dis', 3);
+        $maxDistance = $max_dis/6371;
         $options = [
             'geoNear'=>'location',
             'near'=>[$lng, $lat],

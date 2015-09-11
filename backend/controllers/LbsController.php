@@ -64,7 +64,6 @@ class LbsController extends BaseController
             return $this->returnJsonMsg('101', [], '参数错误！');
         }
         $shop_list = $model->getNearShopPage($lng, $lat, $dis, 3, $page);
-        //var_dump($shop_list);
         if (!empty($shop_list)) {
             return $this->returnJsonMsg('200', $shop_list, '商家获取成功');
         } else {
@@ -130,7 +129,7 @@ class LbsController extends BaseController
     {
         $keywords = RequestHelper::get('keywords', '');
         $province = RequestHelper::get('province', '北京市');
-        $data = $suggest = [];
+        $suggest = [];
         if (!empty($keywords)) {
             $model = new Lbs();
             $res = $model->getSuggest($keywords, $province);
@@ -174,7 +173,6 @@ class LbsController extends BaseController
         $shop_id = RequestHelper::get('shop_id', "0");
         $res = $model->checkAddress($lng, $lat, $shop_id);
         //$shop_list = $model->getNearShopPage($lng, $lat, $dis, 3, 2);
-        //var_dump($shop_list);
         if (!empty($res)) {
             return $this->returnJsonMsg('200', [], '此地址在服务范围之内');
         } else {
@@ -201,7 +199,6 @@ class LbsController extends BaseController
                     $lat = number_format($location['y'], 6);
                 }
             }
-
         }
         $name = $model->getPoi($lng, $lat);
         if (!empty($name)) {
