@@ -42,7 +42,7 @@ class OrderController extends BaseController
         $time = microtime();
         $now = explode(' ', $time);
         $microsecond = ceil($now[0] * 1000000);
-        $order_sn = $province_id.$microsecond.date("ymdHis", $now[1]).$mobile;
+        $order_sn = $province_id.date("ymdHis", $now[1]).$microsecond.$mobile;
         return $this->returnJsonMsg(200, $order_sn, 'SUCCESS');
     }
 }
