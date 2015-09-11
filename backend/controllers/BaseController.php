@@ -56,7 +56,7 @@ class BaseController extends Controller
             $this->params = RequestHelper::get();
             break;
         }
-        //file_put_contents('/tmp/app_request_param.log', "请求时间：".date('Y-m-d H:i:s')." 请求参数:". var_export($this->params, true)."\n", FILE_APPEND);
+        file_put_contents('/tmp/app_request_param.log', "请求时间：".date('Y-m-d H:i:s')." 请求参数:". var_export($this->params, true)."\n", FILE_APPEND);
         if (!\Yii::$app->params['sign_debug']) {
             //var_dump($this->params);
             if (!isset($this->params['appId'])) {
