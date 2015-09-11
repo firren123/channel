@@ -113,14 +113,14 @@ class BaseController extends Controller
     {
         $app_code = \Yii::$app->params['APP_CODE'];
 
-        if(!isset($app_code[$app_id])){
+        if (!isset($app_code[$app_id])) {
             $this->returnJsonMsg('403', ['appId'=>$app_id], 'The appID does not exist');
         }
         $val  = '';
-        if($this->params){
+        if ($this->params) {
             $params = $this->params;
             krsort($params);
-            foreach($params as $k=>$v){
+            foreach ($params as $k=>$v) {
                 $val .= $v;
             }
             file_put_contents('/tmp/server_data.log', var_export($params, true), FILE_APPEND);
@@ -135,7 +135,7 @@ class BaseController extends Controller
      * @param string $message 错误说明
      * @return array
      */
-    public function returnJsonMsg($code='',$data=array(),$message='')
+    public function returnJsonMsg($code='', $data=array(), $message='')
     {
         $arr = array(
             'code' => $code,
@@ -182,10 +182,6 @@ class BaseController extends Controller
      */
     public function afterAction($action, $result)
     {
-//        $time = microtime(true) - $this->_startTime;
-//        $action = $action->controller->id;
-//        $end = $this->_uniqueCode.'| end |'.date("Y-m-d H:i:s"). ' | time:'. $time."\n";
-//        file_put_contents('/tmp/channel.log', $end, FILE_APPEND);
         $this->_recordLog();
         return parent::afterAction($action, $result);
     }
