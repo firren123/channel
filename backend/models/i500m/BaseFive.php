@@ -1,22 +1,24 @@
 <?php
 /**
- * 商品模型
+ * I500m数据库操作基础类
  *
  * PHP Version 5
- * 商品模型 商品相关数据
+ * 可写多行的文件相关说明
  *
  * @category  I500M
  * @package   Member
  * @author    renyineng <renyineng@iyangpin.com>
- * @time      15/8/16 下午10:56
+ * @time      15/8/16 下午11:02
  * @copyright 2015 灵韬致胜（北京）科技发展有限公司
  * @license   http://www.i500m.com license
  * @link      renyineng@iyangpin.com
  */
 namespace backend\models\i500m;
 
+use backend\models\Base;
+
 /**
- * Products
+ * I500Base
  *
  * @category Channel
  * @package  Products
@@ -24,15 +26,14 @@ namespace backend\models\i500m;
  * @license  http://www.i500m.com/ license
  * @link     renyineng@iyangpin.com
  */
-class Products extends BaseFive
+class BaseFive extends Base
 {
     /**
-     * 数据库
-     *
-     * @return string
+     * 设置数据库连接
+     * @return mixed
      */
-    public static function tableName()
+    public static function getDB()
     {
-        return '{{%product}}';
+        return \Yii::$app->db_500m;
     }
 }
