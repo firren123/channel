@@ -67,7 +67,7 @@ class BaseRequestHelps
      */
     public static function put($name = '', $default = '', $filter = null)
     {
-        static $_PUT	=	null;
+        static $_PUT    =    null;
         if (is_null($_PUT)) {
             parse_str(file_get_contents('php://input'), $_PUT);
         }
@@ -86,7 +86,7 @@ class BaseRequestHelps
                 $input  =  'POST';
                 break;
             case 'PUT':
-                $input 	=	'PUT';
+                $input     =    'PUT';
                 break;
             default:
                 $input  =  'GET';
@@ -150,24 +150,5 @@ class BaseRequestHelps
             $data       =    isset($default)?$default:null;
         }
         return $data;
-    }
-
-    /**
-     * 单行函数说明
-     *
-     * @param $filter
-     * @param $data
-     *
-     * @return array
-     */
-    public static function array_map_recursive($filter, $data)
-    {
-        $result = array();
-        foreach ($data as $key => $val) {
-            $result[$key] = is_array($val)
-                ? self::array_map_recursive($filter, $val)
-                : call_user_func($filter, $val);
-        }
-        return $result;
     }
 }

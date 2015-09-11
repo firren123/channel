@@ -51,7 +51,7 @@ class SphinxController extends Controller
             //echo $page;
             $list = $model->getPageList(['single'=>1], $field, '', $page, $pageSize);
             //var_dump($list);exit();
-            foreach ($list as $k=>$v) {
+            foreach ($list as $k => $v) {
                 $values[$k] = [
                     intval($v['id']),
                     $v['name'],
