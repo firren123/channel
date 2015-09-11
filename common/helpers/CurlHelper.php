@@ -89,14 +89,14 @@ class CurlHelper
             } else {
                 $url .= '&access-token=' . $access_token;
             }
-        }else{
+        }else {
 
         }
         $url = strstr($url, 'http://') ? $url : $host.$url;
 
         $curl = new Curl();
         $response = $curl->get($url);
-        $response = json_decode($response,true);
+        $response = json_decode($response, true);
         return $response;
     }
 
@@ -132,7 +132,7 @@ class CurlHelper
                 ))
             ->post($url);
         file_put_contents('/tmp/shop_response.log', $url."|结果".$response."\n\r", FILE_APPEND);
-        $response = json_decode($response,true);
+        $response = json_decode($response, true);
         return $response;
     }
 
@@ -160,7 +160,7 @@ class CurlHelper
                 http_build_query($post)
             )
             ->put($url);
-        $response = json_decode($response,true);
+        $response = json_decode($response, true);
         return $response;
     }
 
@@ -181,7 +181,7 @@ class CurlHelper
         $url = strstr($url, 'http://') ? $url : $host.$url;
         $curl = new Curl();
         $response = $curl->delete($url);
-        $response = json_decode($response,true);
+        $response = json_decode($response, true);
         return $response;
     }
 }
