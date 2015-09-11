@@ -138,7 +138,7 @@ class LbsController extends BaseController
                 $pos = [];
                 //var_dump($data);
                 if (!empty($data)) {
-                    foreach($data as $k=>$v) {
+                    foreach ($data as $k => $v) {
                         $location = $model->convertToBaidu($v['location']['lng'], $v['location']['lat']);
                        // var_dump($location);exit();
 
@@ -190,7 +190,7 @@ class LbsController extends BaseController
         $lng = RequestHelper::get('lng', 0.000000, 'float');
         $lat = RequestHelper::get('lat', 0.000000, 'float');
         $type = RequestHelper::get('type', 1, 'intval');
-        if (in_array($type,[1, 2])) {
+        if (in_array($type, [1, 2])) {
             if ($type == 2) {
 
                 $location = $model->convertToBaidu($lng, $lat, 1);
