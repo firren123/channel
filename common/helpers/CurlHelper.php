@@ -18,6 +18,7 @@
 namespace common\helpers;
 
 use linslin\yii2\curl\Curl;
+
 /**
  * Class CurlHelper
  * @category  PHP
@@ -63,10 +64,10 @@ class CurlHelper
 
         $timestamp = time();
         $data = array();
-        if('server' == $type){
+        if ('server' == $type) {
             $host = \Yii::$app->params['serverUrl'];
             $ex = explode('?', $url);
-            if(isset($ex[1])){
+            if (isset($ex[1])) {
                 $param = explode('&', $ex[1]);
                 $data = array();
                 foreach($param as $k=>$v){
@@ -80,7 +81,7 @@ class CurlHelper
             } else {
                 $url .= '&appId=' . $app_id . '&timestamp=' . $timestamp . '&sign=' . $sign;
             }
-        }elseif('api' == $type){
+        } elseif ('api' == $type) {
             $access_token = \Yii::$app->params['access_token'];
             $host = \Yii::$app->params['apiUrl'];
             if (stripos($url, '?') === false) {
@@ -99,7 +100,8 @@ class CurlHelper
         return $response;
     }
 
-    public static function post($url = '', $post = array(), $type = 'server'){
+    public static function post($url = '', $post = array(), $type = 'server')
+    {
         $host = '';
         $app_id = \Yii::$app->params['appId'];
         $app_key = \Yii::$app->params['appKey'];
@@ -167,9 +169,8 @@ class CurlHelper
      * @param string $url
      * @return mixed
      */
-    public static function delete($url = ''){
-
-
+    public static function delete($url = '')
+    {
         $host = \Yii::$app->params['apiUrl'];
         $access_token = \Yii::$app->params['access_token'];
         if (stripos($url, '?') === false) {

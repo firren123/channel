@@ -120,7 +120,7 @@ class BaseController extends Controller
         if ($this->params) {
             $params = $this->params;
             krsort($params);
-            foreach ($params as $k=>$v) {
+            foreach ($params as $k => $v) {
                 $val .= $v;
             }
             file_put_contents('/tmp/server_data.log', var_export($params, true), FILE_APPEND);
