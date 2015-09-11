@@ -43,5 +43,3 @@ class I500Base extends Base
         }
     }
 }
-
-
