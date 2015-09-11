@@ -100,11 +100,7 @@ class ChannelController extends Controller
                     $curl = new Curl();
                     $url = \Yii::$app->params['socialUrl'].'/v1/vas/payznb';
                     $response = $curl->reset()
-                        ->setOption(
-                            CURLOPT_POSTFIELDS, http_build_query(
-                                $info
-                            )
-                        )
+                        ->setOption(CURLOPT_POSTFIELDS, http_build_query($info))
                         ->post($url);
                     $response = json_decode($response, true);
                     $ChinaepayLogModel = new ChinaepayLog();
