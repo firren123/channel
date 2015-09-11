@@ -36,7 +36,4 @@ class I500Base extends Base
     {
         return \Yii::$app->db_500m;
     }
-
-
-
 }
