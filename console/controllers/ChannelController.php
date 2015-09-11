@@ -101,8 +101,7 @@ class ChannelController extends Controller
                     $url = \Yii::$app->params['socialUrl'].'/v1/vas/payznb';
                     $response = $curl->reset()
                         ->setOption(
-                            CURLOPT_POSTFIELDS,
-                            http_build_query(
+                            CURLOPT_POSTFIELDS, http_build_query(
                                 $info
                             )
                         )
@@ -156,7 +155,7 @@ class ChannelController extends Controller
         $timestamp = $params['timestamp'];
         unset($params['timestamp']);
         $val = '';
-        foreach ($params as $k=>$v) {
+        foreach ($params as $k => $v) {
             $val .= $v;
         }
         return $sign = md5(md5(md5($app_code.$timestamp).md5($timestamp)).md5($val));
