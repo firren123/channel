@@ -58,4 +58,18 @@ class Common
         }
         return $dis;
     }
+    /**
+     * 获取参数
+     * @param string $param1 第一个参数
+     * @param string $param2 第二个参数
+     * @return int
+     */
+    public static function C($param1 = '', $param2 = '')
+    {
+        if ($param1 && $param2) {
+            return \Yii::$app->params[$param1][$param2];
+        } else {
+            return \Yii::$app->params[$param1];
+        }
+    }
 }
