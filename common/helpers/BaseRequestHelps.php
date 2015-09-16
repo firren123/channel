@@ -114,7 +114,7 @@ class BaseRequestHelps
                     $filters    =   explode(',', $filters);
                 }
                 foreach ($filters as $filter) {
-                    $data   =   self::array_map_recursive($filter, $data); // 参数过滤
+                    $data   =   self::arrayMapRecursive($filter, $data); // 参数过滤
                 }
             }
         } elseif (isset($input[$name])) { // 取值操作
@@ -136,7 +136,7 @@ class BaseRequestHelps
                 if (is_array($filters)) {
                     foreach ($filters as $filter) {
                         if (function_exists($filter)) {
-                            $data   =   is_array($data) ? self::array_map_recursive($filter, $data) : $filter($data); // 参数过滤
+                            $data   =   is_array($data) ? self::arrayMapRecursive($filter, $data) : $filter($data); // 参数过滤
                         } else {
                             $data   =   filter_var($data, is_int($filter) ? $filter : filter_id($filter));
                             if (false === $data) {
@@ -150,5 +150,23 @@ class BaseRequestHelps
             $data       =    isset($default)?$default:null;
         }
         return $data;
+    }
+
+    /**
+     * 简介：test
+     * @author  lichenjun@iyangpin.com。
+     * @param $filter
+     * @param $data
+     * @return array
+     */
+    public static function arrayMapRecursive($filter, $data)
+    {
+        $result = array();
+        foreach ($data as $key => $val) {
+            $result[$key] = is_array($val)
+                ? self::array_map_recursive($filter, $val)
+                : call_user_func($filter, $val);
+        }
+        return $result;
     }
 }
