@@ -19,7 +19,6 @@
 namespace backend\controllers;
 
 use common\helpers\RequestHelper;
-use yii\web\Controller;
 use PhpAmqpLib\Connection\AMQPConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
@@ -64,12 +63,13 @@ class SmsController extends BaseController
     {
         $mobile = RequestHelper::post('mobile', 0);
         $content = RequestHelper::post('content', '');
+        $time = date('Y-m-d H:i:s');
+        $data['mobile'] = $mobile;
+        $data['content'] = $content;
+        $data['type'] = 1;
         if (empty($content) and $mobile==0) {
-            echo json_encode(['code' => '102', 'data' => '', 'msg' => '参数错误']);
+            $list = ['code' => '102', 'data' => $data, 'msg' => '参数错误'];
         } else {
-            $data['mobile'] = $mobile;
-            $data['content'] = $content;
-            $data['type'] = 1;
             $exchange = $this->mq['exchange'];
             $queue = $this->mq['queue'];
             $this->ch->queue_declare($queue, false, false, false, false);
@@ -78,7 +78,9 @@ class SmsController extends BaseController
             $msg = new AMQPMessage(json_encode($data));
             $this->ch->basic_publish($msg, "", $queue);
             $this->ch->close();
-            echo json_encode(['code' => '200', 'data' => $data, 'msg' => '成功']);
+            $list = ['code' => '200', 'data' => $data, 'msg' => '成功'];
         }
+        file_put_contents('/tmp/channel_in.log', $time . '|' . json_encode($list) . "\r\n", FILE_APPEND);
+        echo json_encode($list);
     }
 }
