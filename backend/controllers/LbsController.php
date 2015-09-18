@@ -15,6 +15,8 @@
  */
 namespace backend\controllers;
 
+use backend\models\i500_social\UserService;
+use backend\models\SocialMongo;
 use common\helpers\RequestHelper;
 use backend\models\Lbs;
 use yii\helpers\ArrayHelper;
@@ -30,6 +32,7 @@ use yii\helpers\ArrayHelper;
  */
 class LbsController extends BaseController
 {
+    public $enableCsrfValidation = false;
     /**
      * 获取附近的商家
      * @return string
@@ -205,6 +208,72 @@ class LbsController extends BaseController
             return $this->returnJsonMsg('200', ['name'=>$name], '位置获取成功');
         } else {
             return $this->returnJsonMsg('404', [], '暂无数据！');
+        }
+    }
+    public function actionAddUserService()
+    {
+        $mobile = RequestHelper::post('mobile','');
+        $model = new UserService();
+        $select = ['uid', 'mobile', 'name', 'province_id', 'lng', 'lat', 'user_name', 'user_card', 'user_sex', 'user_age', 'user_home', 'audit_status', 'status', 'is_deleted', 'create_time'];
+        $info = $model->getInfo(['mobile'=>$mobile], true, $select);
+        if (!empty($info)) {
+            $info['lng'] = floatval($info['lng']);
+            $info['lat'] = floatval($info['lat']);
+            $info['loc'] = [floatval($info['lng']),floatval($info['lat'])];
+            $info['audit_status'] = intval($info['audit_status']);
+            $info['status'] = intval($info['status']);
+            $info['is_deleted'] = intval($info['is_deleted']);
+            $mongo = new SocialMongo();
+
+            $re = $mongo->addOne($info);
+            if ($re) {
+                $this->returnJsonMsg(200, [], 'SUCCESS');
+            } else {
+                $this->returnJsonMsg(101, [], '添加失败！');
+            }
+        } else {
+            $this->returnJsonMsg(102, [], '无数据！');
+        }
+
+    }
+    public function actionEditUserService()
+    {
+        $mobile = RequestHelper::post('mobile','');
+        $model = new UserService();
+        $select = ['uid', 'mobile', 'name', 'province_id', 'lng', 'lat', 'user_name', 'user_card', 'user_sex', 'user_age', 'user_home', 'audit_status', 'status', 'is_deleted', 'create_time'];
+        $info = $model->getInfo(['mobile'=>$mobile], true, $select);
+        if (empty($info)) {
+            $this->returnJsonMsg(102, [], '无数据！');
+        } else {
+            $info['lng'] = floatval($info['lng']);
+            $info['lat'] = floatval($info['lat']);
+            $info['loc'] = [floatval($info['lng']),floatval($info['lat'])];
+            $info['audit_status'] = intval($info['audit_status']);
+            $info['status'] = intval($info['status']);
+            $info['is_deleted'] = intval($info['is_deleted']);
+            $mongo = new SocialMongo();
+            $re = $mongo->editOne($mobile, $info);
+            if ($re) {
+                $this->returnJsonMsg(200, [], 'SUCCESS');
+            } else {
+                $this->returnJsonMsg(101, [], '更新失败！');
+            }
+        }
+
+    }
+    public function actionGetNearUser()
+    {
+        $model = new Lbs();
+        $lng = RequestHelper::get('lng', 0.000000, 'float');
+        $lat = RequestHelper::get('lat', 0.000000, 'float');
+        $dis = RequestHelper::get('dis', 2, 'intval');
+        $shop_list = $model->getNearUser($lng, $lat, $dis);
+        //$shop_list = $model->getNearShopPage($lng, $lat, $dis, 3, 2);
+        //var_dump($shop_list);
+        if (!empty($shop_list)) {
+            return $this->returnJsonMsg('200', $shop_list, '商家获取成功');
+        } else {
+            return $this->returnJsonMsg('404', [], '附近暂无服务商，敬请期待！');
         }
     }
 }

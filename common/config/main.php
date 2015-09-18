@@ -31,6 +31,13 @@ return [
             'password'=>'500m',
             'charset'=>'utf8',
         ],
+        'social'    => [
+            'class'=>'yii\db\Connection',
+            'dsn'=>'mysql:host=118.186.247.55;dbname=i500_social',
+            'username'=>'500m',
+            'password'=>'500m',
+            'charset'=>'utf8',
+        ],
         'mongodb' => [
             'class' => 'yii\mongodb\Connection',
             'dsn' => 'mongodb://500m:trouCUs3hq1i@118.186.247.55:27017/shop',
@@ -41,12 +48,6 @@ return [
             'username' => '',
             'password' => '',
         ],
-        'user' => [
-            'identityClass' => 'common\models\Admin',
-            'enableAutoLogin' => true,
-
-            //'isGuest'=>false,
-        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -55,9 +56,6 @@ return [
                     'levels' => ['error', 'warning'],
                 ],
             ],
-        ],
-        'errorHandler' => [
-            'errorAction' => 'error/index',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -69,10 +67,6 @@ return [
 //            'rules' => [
 //                ['class' => 'yii\rest\UrlRule', 'controller' => ['user','shop']],
 //            ],
-        ],
-        'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'ZZ9OX6n9bdunMW3iB-8IYdNGdJAnbMSp',
         ],
     ],
 

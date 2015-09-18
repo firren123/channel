@@ -33,6 +33,7 @@ use yii\mongodb\Query;
 
 class Lbs extends ActiveRecord
 {
+    public $database = 'shop';
     /**
      * 定义表名
      * @return string
@@ -295,6 +296,43 @@ class Lbs extends ActiveRecord
             return ArrayHelper::getValue($res['result'], 'addressComponent.street', '');
         }
         //var_dump($res);
+    }
+    public function getNearUser($lng, $lat, $distance, $table = 'user_social')
+    {
+        $list = [];
+        $connection = \Yii::$app->mongodb;
+        $db = $connection->getDatabase($this->database);
+        $maxDistance = $distance/6371;
+        $options = [
+            'geoNear'=>$table,
+            'near'=>[$lng, $lat],
+            //  'num'=>$num,
+            //'limit'=>30,
+            'spherical'=>true,
+            'maxDistance'=>$maxDistance,
+            'distanceMultiplier'=>6371,
+            'query'=>['status'=>2, 'audit_status'=>2, 'is_deleted'=>2]
+        ];
+        $near = $db->executeCommand($options);
+        if (!empty($near['results'])) {
+            foreach ($near['results'] as $k => $v) {
+                $list[$k] = [
+                    'uid' => ArrayHelper::getValue($v, 'obj.uid', 0),
+                    'mobile' => ArrayHelper::getValue($v, 'obj.mobile', ''),
+                    'name' => ArrayHelper::getValue($v, 'obj.name', ''),
+                    'province_id' => ArrayHelper::getValue($v, 'obj.province_id', 0),
+                    'dis'=>Common::getDistance($v['dis']),
+                ];
+            }
+            return $list;
+        }
+        return [];
+    }
+    public function addUserService($data)
+    {
+        if (!empty($data) && is_array($data)) {
+
+        }
     }
 
 }
