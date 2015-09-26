@@ -48,13 +48,23 @@ class Common
     {
         $distance = number_format($distance, 3);
         $dis = $distance.'km';
-        //如果大于100米 小于 1公里的话 显示为米
-        if ($distance >= 0.1 & $distance < 1) {
+//        //如果大于100米 小于 1公里的话 显示为米
+//        if ($distance >= 0.1 & $distance < 1) {
+//            $dis = ($distance * 1000).'m';
+//        }
+//        //如果小于等于100米 则显示小于100m
+//        if ($distance < 0.1) {
+//            $dis = '小于100m';
+//        }
+
+
+        //精确到十米 2015-09-26
+        if ($distance >= 0.01 & $distance < 1) {
             $dis = ($distance * 1000).'m';
         }
         //如果小于等于100米 则显示小于100m
-        if ($distance < 0.1) {
-            $dis = '小于100m';
+        if ($distance < 0.01) {
+            $dis = '小于10m';
         }
         return $dis;
     }
