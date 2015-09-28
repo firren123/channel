@@ -274,27 +274,38 @@ class Lbs extends ActiveRecord
             return false;
         }
     }
-    public function getPoi($lng, $lat)
+    public function getPoi($lng, $lat, $type='poi')
     {
         $baiduUrl = \Yii::$app->params['baiduUrl'].'geocoder/v2/';
         $ak = \Yii::$app->params['ak'];
+        $poi = ($type == 'poi') ? 1 : 0;
         $params =
             [
                 'location'=>$lat.','.$lng,
                 'output'=>'json',
-                'pois'=>1,
+                'pois'=>$poi,
                 'ak'=>$ak,
             ];
         $query = http_build_query($params);
 
         $url = $baiduUrl .'?'. $query;
         $res = CurlHelper::get($url);
-        if (isset($res['result']['pois'])) {
-            return ArrayHelper::getValue($res['result'], 'pois.0.name', '');
-           // return $res['result']['pois'][0];
-        } elseif (isset($res['result']['pois'])) {
-            return ArrayHelper::getValue($res['result'], 'addressComponent.street', '');
+        if ($poi == 1) {
+            if (isset($res['result']['pois'])) {
+                return ArrayHelper::getValue($res['result'], 'pois.0.name', '');
+                // return $res['result']['pois'][0];
+            } elseif (isset($res['result']['formatted_address'])) {
+                return ArrayHelper::getValue($res['result'], 'formatted_address', '');
+            }
+        } else {
+            if (isset($res['result']['addressComponent'])) {
+                return ArrayHelper::getValue($res['result'], 'addressComponent.city', '北京市');
+                // return $res['result']['pois'][0];
+            } elseif (isset($res['result']['pois'])) {
+                return ArrayHelper::getValue($res['result'], 'addressComponent.street', '');
+            }
         }
+
         //var_dump($res);
     }
     public function getNearUser($lng, $lat, $distance, $table = 'user_social')
@@ -333,6 +344,66 @@ class Lbs extends ActiveRecord
         if (!empty($data) && is_array($data)) {
 
         }
+    }
+    public function getNearCommunity($lng, $lat, $distance)
+    {
+        $list = [];
+        $connection = \Yii::$app->mongodb;
+        $db = $connection->getDatabase($this->database);
+        $maxDistance = $distance/6371;
+        $table = Common::getCommunityTable(1);
+        $options = [
+            'geoNear'=>$table,
+            'near'=>[$lng, $lat],
+            //  'num'=>$num,
+            //'limit'=>30,
+            'spherical'=>true,
+            'maxDistance'=>$maxDistance,
+            'distanceMultiplier'=>6371,
+            //'query'=>['status'=>2, 'audit_status'=>2, 'is_deleted'=>2]
+        ];
+        $near = $db->executeCommand($options);
+        //var_dump($near['results']);exit();
+        if (!empty($near['results'])) {
+            foreach ($near['results'] as $k => $v) {
+                $list[$k] = [
+                    'community_id' => ArrayHelper::getValue($v, 'obj.community_id', 0),
+                    'name' => ArrayHelper::getValue($v, 'obj.name', ''),
+                    //'name' => ArrayHelper::getValue($v, 'obj.name', ''),
+                    'province_id' => ArrayHelper::getValue($v, 'obj.province_id', 0),
+                    'dis'=>Common::getDistance($v['dis']),
+                ];
+            }
+            return $list;
+        }
+        return [];
+    }
+    public function getCity($lng, $lat)
+    {
+        $baiduUrl = \Yii::$app->params['baiduUrl'].'geocoder/v2/';
+        $ak = \Yii::$app->params['ak'];
+        $params =
+            [
+                'location'=>$lat.','.$lng,
+                'output'=>'json',
+                'pois'=>1,
+                'ak'=>$ak,
+            ];
+        $query = http_build_query($params);
+
+        $url = $baiduUrl .'?'. $query;
+        $res = CurlHelper::get($url);
+        if (isset($res['result']['pois'])) {
+            return ArrayHelper::getValue($res['result'], 'pois.0.name', '');
+            // return $res['result']['pois'][0];
+        } elseif (isset($res['result']['pois'])) {
+            return ArrayHelper::getValue($res['result'], 'addressComponent.street', '');
+        }
+
+        $ak = \Yii::$app->params['ak'];
+        $url = 'http://api.map.baidu.com/geocoder/v2/?ak='.$ak.'&location='.$lat.','.$lng.'&output=json&pois=0';
+        $response = $this->_curl_get($url);
+        return json_decode($response, true);
     }
 
 }

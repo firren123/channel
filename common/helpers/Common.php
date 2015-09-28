@@ -82,4 +82,106 @@ class Common
             return \Yii::$app->params[$param1];
         }
     }
+    /**
+     * 根据城市id 获取小区表名
+     * @param int $city_id 城市id
+     * @return string
+     */
+    public static function getCommunityTable($city_id)
+    {
+        switch($city_id)
+        {
+            case 1:
+                $table_name = 'community_beijing';
+                break;
+            case 258:
+                $table_name = 'community_chengdu';
+                break;
+            case 261:
+                $table_name = 'community_luzhou';
+                break;
+            case 14:
+                $table_name = 'community_taiyuan';
+                break;
+            case 222:
+                $table_name = 'community_nanning';
+                break;
+            case 230:
+                $table_name = 'community_yulin';
+                break;
+            case 223:
+                $table_name = 'community_liuzhou';
+                break;
+            case 224:
+                $table_name = 'community_guilin';
+                break;
+            case 2:
+                $table_name = 'community_tianjin';
+                break;
+            case 3:
+                $table_name = 'community_shijiazhuang';
+                break;
+            case 74:
+                $table_name = 'community_nanjing';
+                break;
+            case 257:
+                $table_name = 'community_chongqing';
+                break;
+            case 311:
+                $table_name = 'community_xian';
+                break;
+            case 135:
+                $table_name = 'community_jinan';
+                break;
+            case 4:
+                $table_name = 'community_tangshan';
+                break;
+            case 5:
+                $table_name = 'community_qinhuangdao';
+                break;
+            case 6:
+                $table_name = 'community_handan';
+                break;
+            case 7:
+                $table_name = 'community_xingtai';
+                break;
+            case 8:
+                $table_name = 'community_baoding';
+                break;
+            case 9:
+                $table_name = 'community_zhangjiakou';
+                break;
+            case 10:
+                $table_name = 'community_chengde';
+                break;
+            case 11:
+                $table_name = 'community_hengshui';
+                break;
+            case 12:
+                $table_name = 'community_langfang';
+                break;
+            case 13:
+                $table_name = 'community_cangzhou';
+                break;
+            case 136:
+                $table_name = 'community_qingdao';
+                break;
+            case 75:
+                $table_name = 'community_wuxi';
+                break;
+            case 78:
+                $table_name = 'community_suzhou';
+                break;
+            case 335:
+                $table_name = 'community_xining';
+                break;
+            case 288:
+                $table_name = 'community_kunming';
+                break;
+
+            default:
+                $table_name = 'community_beijing';
+        }
+        return $table_name;
+    }
 }
