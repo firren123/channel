@@ -19,6 +19,7 @@
 namespace backend\controllers;
 use common\helpers\RequestHelper;
 use common\vendor\Push\PushSDK;
+use yii\helpers\Json;
 
 /**
  * Class PushController
@@ -59,13 +60,15 @@ class PushController extends BaseController
         $description = RequestHelper::post('description');
         $title = RequestHelper::post('title');
         if ($channelId == '' || $description == '' || $title == '') {
-            echo json_encode(array(101, '缺少字段'));
+            echo json_encode(array('code'=>101, 'data'=>'', 'msg'=>'缺少字段'));
             exit;
         }
+        $custom_content = RequestHelper::post('custom_content');
         $push = new PushSDK();
         $message = [
             'description'=> $description,
-            'title' => $title
+            'title' => $title,
+            'custom_content' =>json_encode($custom_content)
         ];
         // 设置消息类型为 通知类型.
         $opts = array(
@@ -78,10 +81,10 @@ class PushController extends BaseController
         if ($rs === false) {
             $code = $push->getLastErrorCode();
             $msg = $push->getLastErrorMsg();
-            echo json_encode(array($code,$msg));
+            echo json_encode(array('code'=>$code,'data'=>'', 'msg'=>$msg));
         } else {
             // 将打印出消息的id,发送时间等相关信息.
-            echo json_encode(array(200,$rs));
+            echo json_encode(array('code'=>200,'data'=>$rs, 'msg'=>'成功'));
         }
         exit;
 
