@@ -371,6 +371,7 @@ class Lbs extends ActiveRecord
                     'name' => ArrayHelper::getValue($v, 'obj.name', ''),
                     //'name' => ArrayHelper::getValue($v, 'obj.name', ''),
                     'province_id' => ArrayHelper::getValue($v, 'obj.province_id', 0),
+                    'city_id' => ArrayHelper::getValue($v, 'obj.city', 0),
                     'address' => ArrayHelper::getValue($v, 'obj.address', ''),
                     'dis'=>Common::getDistance($v['dis']),
                 ];
