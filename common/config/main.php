@@ -68,6 +68,12 @@ return [
 //                ['class' => 'yii\rest\UrlRule', 'controller' => ['user','shop']],
 //            ],
         ],
+        'request' => [
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => 'ZIEF78AHhhkekr-wri32jgekjkwerkkjfwfwh',
+            'enableCookieValidation' => false,
+            'enableCsrfValidation' => FALSE,
+        ],
     ],
 
     'params' => $params,
