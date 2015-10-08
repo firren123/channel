@@ -19,7 +19,6 @@
 namespace backend\controllers;
 use common\helpers\RequestHelper;
 use common\vendor\Push\PushSDK;
-use yii\helpers\Json;
 
 /**
  * Class PushController
@@ -82,9 +81,11 @@ class PushController extends BaseController
             $code = $push->getLastErrorCode();
             $msg = $push->getLastErrorMsg();
             echo json_encode(array('code'=>$code,'data'=>'', 'msg'=>$msg));
+            file_put_contents('/tmp/baidu_push.log', "请求时间：".date('Y-m-d H:i:s')." 请求参数:". var_export($this->params, true)."|发送失败状态码".$code.";msg:".$msg."\n", FILE_APPEND);
         } else {
             // 将打印出消息的id,发送时间等相关信息.
             echo json_encode(array('code'=>200,'data'=>$rs, 'msg'=>'成功'));
+            file_put_contents('/tmp/baidu_push.log', "请求时间：".date('Y-m-d H:i:s')." 请求参数:". var_export($this->params, true)."|发送成功:".var_export($rs,true)."\n", FILE_APPEND);
         }
         exit;
 
