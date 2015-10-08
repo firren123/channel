@@ -66,16 +66,17 @@ class PushController extends BaseController
         $push = new PushSDK();
         $message = [
             'description'=> $description,
-            'title' => $title,
-            'custom_content' =>json_encode($custom_content)
+            'title' => $title
         ];
+        if ($custom_content) {
+            $message['custom_content'] = $custom_content;
+        }
         // 设置消息类型为 通知类型.
         $opts = array(
             'msg_type' => 1,     //0：透传消息 1：通知
         );
         // 向目标设备发送一条消息
         $rs = $push->pushMsgToSingleDevice($channelId, $message, $opts);
-
         // 判断返回值,当发送失败时, $rs的结果为false, 可以通过getError来获得错误信息.
         if ($rs === false) {
             $code = $push->getLastErrorCode();
