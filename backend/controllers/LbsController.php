@@ -15,8 +15,10 @@
  */
 namespace backend\controllers;
 
+use backend\models\CommunityMongo;
 use backend\models\i500_social\UserService;
 use backend\models\SocialMongo;
+use common\helpers\Common;
 use common\helpers\RequestHelper;
 use backend\models\Lbs;
 use yii\helpers\ArrayHelper;
@@ -289,6 +291,22 @@ class LbsController extends BaseController
             return $this->returnJsonMsg('200', $shop_list, '小区获取成功');
         } else {
             return $this->returnJsonMsg('404', [], '附近暂无小区，敬请期待！');
+        }
+    }
+    public function actionSearchCommunity()
+    {
+        //echo 134;exit();
+        $keywords = RequestHelper::get('keywords', '');
+        $city = RequestHelper::get('city', '');
+        $limit = RequestHelper::get('limit', 10, 'intval');
+        $table_name = Common::getCommunityTable(1);
+        $model = new CommunityMongo($table_name);
+        $list = $model->search($keywords, $limit);
+        //var_dump($list);exit();
+        if (!empty($list)) {
+            return $this->returnJsonMsg(200, $list, '获取成功');
+        } else {
+            return $this->returnJsonMsg(404, [], '暂无数据');
         }
     }
 }
