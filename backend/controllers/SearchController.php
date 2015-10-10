@@ -38,9 +38,16 @@ class SearchController extends BaseController
         $second_id = RequestHelper::get('second_id', '');
         $brand_id = RequestHelper::get('brand_id', '');
         $price = RequestHelper::get('price', '');
+
         $sort = RequestHelper::get('sort', '');
+//        $rate = RequestHelper::get('rate', '');
+//        $sales_num = RequestHelper::get('sales_num', '');
+
+        $this->pageSize = RequestHelper::get('per-page', $this->pageSize);
+        $psort = ['buy_price'=>'origin_price', 'sale_profit_margin'=>'rate', 'sales_num'=>'sales_num'];
         $search_order = [];
-        if (!empty($sort) && in_array($sort, ['origin_price']) ) {
+        if (!empty($sort) && in_array($sort, array_keys($psort))) {
+            $sort = $psort[$sort];
             $order = RequestHelper::get('order', 'DESC', 'strtoupper');
             $order = ($order == 'DESC') ? SORT_DESC : SORT_ASC;
             $search_order = [$sort=>$order];
