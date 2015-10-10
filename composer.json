@@ -21,7 +21,8 @@
         "linslin/yii2-curl": "*",
         "videlalvaro/php-amqplib": "2.5.*",
 	"yiisoft/yii2-sphinx": "~2.0.0",
-        "yiisoft/yii2-mongodb": "~2.0"
+        "yiisoft/yii2-mongodb": "~2.0",
+        "hightman/xunsearch": "*@beta"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
