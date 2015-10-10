@@ -66,7 +66,7 @@ class CommunityMongo extends ActiveRecord
 //        var_dump($list);
 //        echo $keywords;
         //$list = $this->find()->select(['name','lng','lat'])->where(['LIKE', 'name', "^".$keywords])->all();
-        $list = $this->find()->select(['name','address', 'lng','lat'])->where(['LIKE', 'name', "$keywords"])->limit($limit)->asArray()->all();
+        $list = $this->find()->select(['community_id', 'name', 'province_id', 'city_id','address', 'lng','lat'])->where(['LIKE', 'name', "$keywords"])->limit($limit)->asArray()->all();
         //var_dump($list);
         return $list;
     }
