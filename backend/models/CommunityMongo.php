@@ -34,7 +34,7 @@ class CommunityMongo extends ActiveRecord
     public function rules()
     {
         return [
-            [['community_id','name','lng','lat','loc','province','city','area','address','create_time','status'], 'safe']
+            [['community_id','name','lng','lat','loc','province_id','city_id','area','address','create_time','status'], 'safe']
         ];
     }
     /**
@@ -47,7 +47,7 @@ class CommunityMongo extends ActiveRecord
     }
     public function attributes()
     {
-        return ['_id','community_id','name','lng','lat','loc','province','city','area','address','create_time','status'];
+        return ['_id','community_id','name','lng','lat','loc','province_id','city_id','area','address','create_time','status'];
     }
 
     /**
