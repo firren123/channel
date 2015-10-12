@@ -306,7 +306,7 @@ class LbsController extends BaseController
         if (!empty($list)) {
             return $this->returnJsonMsg(200, $list, '获取成功');
         } else {
-            return $this->returnJsonMsg(404, [], '暂无数据');
+            return $this->returnJsonMsg(200, [], '暂无数据');
         }
     }
 }
