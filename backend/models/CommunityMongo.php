@@ -34,7 +34,7 @@ class CommunityMongo extends ActiveRecord
     public function rules()
     {
         return [
-            [['community_id','name','lng','lat','loc','province_id','city_id','area','address','create_time','status'], 'safe']
+            [['community_id','name','lng','lat','loc','province','city','area','address','create_time','status'], 'safe']
         ];
     }
     /**
@@ -47,7 +47,7 @@ class CommunityMongo extends ActiveRecord
     }
     public function attributes()
     {
-        return ['_id','community_id','name','lng','lat','loc','province_id','city_id','area','address','create_time','status'];
+        return ['_id','community_id','name','lng','lat','loc','province','city','area','address','create_time','status'];
     }
 
     /**
@@ -66,14 +66,24 @@ class CommunityMongo extends ActiveRecord
 //        var_dump($list);
 //        echo $keywords;
         //$list = $this->find()->select(['name','lng','lat'])->where(['LIKE', 'name', "^".$keywords])->all();
-        $list = $this->find()->select(['community_id', 'name', 'province_id', 'city_id','address', 'lng','lat'])->where(['LIKE', 'name', "$keywords"])->limit($limit)->asArray()->all();
+        $list = $this->find()->select(['community_id', 'name', 'province', 'city','address', 'lng','lat'])->where(['LIKE', 'name', "$keywords"])->limit($limit)->asArray()->all();
         //var_dump($list);
+        $data = [];
         if (!empty($list)) {
             foreach($list as $k => $v) {
-                unset($list[$k]['_id']);
+                $data[] = [
+                    'community_id'=>$v['community_id'],
+                    'name'=>$v['name'],
+                    'province_id'=>$v['province'],
+                    'city_id'=>$v['city'],
+                    'address'=>$v['address'],
+                    'lng'=>$v['lng'],
+                    'lat'=>$v['lat'],
+
+                ];
             }
         }
-        return $list;
+        return $data;
     }
     public function getData($limit = 10){
         $list = $this->find()->select(['name', 'address', 'lng','lat'])->limit($limit)->asArray()->all();
