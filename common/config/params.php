@@ -57,5 +57,8 @@ return [
         'queue' => 'sms_queue'
     ],
 
+    //电网接口
+    'socialUrl' => 'social.test.i500m.com',
+
 ];
 
