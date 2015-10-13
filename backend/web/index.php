@@ -11,7 +11,5 @@ $config = array_merge(
     require(__DIR__ . '/../../common/config/main.php'),
     require(__DIR__ . '/../config/main.php')
 );
-var_dump($config);
-exit;
 $application = new yii\web\Application($config);
 $application->run();
