@@ -1,7 +1,7 @@
 <?php
 return [
     'mq' => [
-        'host' => '118.186.247.55',
+        'host' => '127.0.0.1',
         'port' => '5672',
         'user' => '500m',
         'pass' => 'gbjY51Rpstx',
