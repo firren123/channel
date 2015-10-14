@@ -64,46 +64,16 @@ class CurlHelper
      *
      * @return mixed
      */
-    public static function get($url = '', $type = 'server')
+    public static function get($url = '')
     {
-        $host = '';
-        $app_id = \Yii::$app->params['appId'];
-        $app_key = \Yii::$app->params['appKey'];
-
-        $timestamp = time();
-        $data = array();
-        if ('server' == $type) {
-            $host = \Yii::$app->params['serverUrl'];
-            $ex = explode('?', $url);
-            if (isset($ex[1])) {
-                $param = explode('&', $ex[1]);
-                $data = array();
-                foreach ($param as $k => $v) {
-                    $ex_v = explode('=', $v);
-                    $data[$ex_v[0]] = $ex_v[1];
-                }
-            }
-            $sign = self::_createSign($app_key, $timestamp, $data);
-            if (stripos($url, '?') === false) {
-                $url .= '?appId=' . $app_id . '&timestamp=' . $timestamp . '&sign=' . $sign;
-            } else {
-                $url .= '&appId=' . $app_id . '&timestamp=' . $timestamp . '&sign=' . $sign;
-            }
-        } elseif ('api' == $type) {
-            $access_token = \Yii::$app->params['access_token'];
-            $host = \Yii::$app->params['apiUrl'];
-            if (stripos($url, '?') === false) {
-                $url .= '?access-token=' . $access_token;
-            } else {
-                $url .= '&access-token=' . $access_token;
-            }
+        if (strstr($url, 'http://')) {
+            $curl = new Curl();
+            $response = $curl->get($url);
+            $response = json_decode($response, true);
+            return $response;
+        } else {
+            return false;
         }
-        $url = strstr($url, 'http://') ? $url : $host.$url;
-
-        $curl = new Curl();
-        $response = $curl->get($url);
-        $response = json_decode($response, true);
-        return $response;
     }
 
     /**
@@ -115,28 +85,9 @@ class CurlHelper
      *
      * @return mixed
      */
-    public static function post($url = '', $post = array(), $type = 'server')
+    public static function post($url = '', $post = array())
     {
-        $host = '';
-        $app_id = \Yii::$app->params['appId'];
-        $app_key = \Yii::$app->params['appKey'];
-        $timestamp = time();
-        if ($type == 'server') {
-            $host = \Yii::$app->params['serverUrl'];
-            $sign = self::_createSign($app_key, $timestamp, $post);
-            $post['appId']      = $app_id;
-            $post['timestamp']  = $timestamp;
-            $post['sign']       = $sign;
-        } elseif ($type== 'api') {
-            $host = \Yii::$app->params['apiUrl'];
-            $access_token = \Yii::$app->params['access_token'];
-            if (stripos($url, '?') === false) {
-                $url .= '?access-token=' . $access_token;
-            } else {
-                $url .= '&access-token=' . $access_token;
-            }
-        }
-        $url = strstr($url, 'http://') ? $url : $host.$url;
+
         $curl = new Curl();
         $response = $curl->reset()
             ->setOption(CURLOPT_POSTFIELDS, http_build_query($post))
