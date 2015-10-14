@@ -204,17 +204,18 @@ class DataController extends Controller
 //        $lbs = new Lbs();
 //        $res = $lbs->getPointByAddress('润坤大厦');
 //        var_dump($res);
-        $data['mobile'] = 18618359358;
-        $data['content'] = 'asdfasdf测试能';
-        echo $url = \Yii::$app->params['channelUrl'].'enter/sms-add';
-        $re = CurlHelper::post($url, $data);
-        var_dump($re);
-//        $lng1 = 116.527747;
-//        $lat1 = 39.921224;
-//        $lng2 = 116.51666;
-//        $lat2 = 39.899727;
-//        $re = Common::geoDistance($lng1,$lat1,$lng2,$lat2);
-//        var_dump($re/1000);
+//        $data['mobile'] = 18618359358;
+//        $data['content'] = 'asdfasdf测试能';
+//        echo $url = \Yii::$app->params['channelUrl'].'enter/sms-add';
+//        $re = CurlHelper::post($url, $data);
+//        var_dump($re);
+        var_dump(\Yii::$app->db_500m);
+        $lng1 = 116.527747;
+        $lat1 = 39.921224;
+        $lng2 = 116.51666;
+        $lat2 = 39.899727;
+        $re = Common::geoDistance($lng1,$lat1,$lng2,$lat2);
+        var_dump($re/1000);
     }
     public function actionSendMail()
     {
