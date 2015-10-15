@@ -1142,5 +1142,65 @@
             "mongodb",
             "yii2"
         ]
+    },
+    {
+        "name": "hightman/xunsearch",
+        "version": "1.4.10-beta3",
+        "version_normalized": "1.4.10.0-beta3",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hightman/xs-sdk-php.git",
+            "reference": "9d1b9980d8f0d20571df056d644dd7287c6ffa36"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hightman/xs-sdk-php/zipball/9d1b9980d8f0d20571df056d644dd7287c6ffa36",
+            "reference": "9d1b9980d8f0d20571df056d644dd7287c6ffa36",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "lib-pcre": "*",
+            "php": ">=5.3.0"
+        },
+        "time": "2015-08-05 07:43:01",
+        "bin": [
+            "util/xs"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "lib/",
+                "wrapper/yii-ext/"
+            ],
+            "psr-4": {
+                "hightman\\xunsearch\\": "wrapper/yii2-ext/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "hightman",
+                "email": "hightman@twomice.net",
+                "role": "Founder and project leader"
+            }
+        ],
+        "description": "xunsearch php sdk, include yii, yii2 supports",
+        "homepage": "http://www.xunsearch.com/",
+        "keywords": [
+            "search engine",
+            "xunsearch",
+            "yii",
+            "yii2"
+        ]
     }
 ]

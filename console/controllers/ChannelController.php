@@ -67,11 +67,13 @@ class ChannelController extends Controller
     {
         $m = 1;
         while ($m) {
+            $time = date('Y-m-d H:i:s');
             $this->ch->queue_declare($this->mq['queue'], false, false, false, false);
             $this->ch->exchange_declare($this->mq['exchange'], 'direct', false, false, false);
             $this->ch->queue_bind($this->mq['queue'], $this->mq['exchange']);
             $msg = $this->ch->basic_get($this->mq['queue']);
             if ($msg) {
+                file_put_contents('/tmp/channel_out.log', $time . '|' . $msg->body . "\r\n", FILE_APPEND);
                 $info = json_decode($msg->body, true);
                 switch ($info['type']) {
                 case 1: //发送短信
@@ -83,7 +85,6 @@ class ChannelController extends Controller
                         $this->ch->basic_ack($msg->delivery_info['delivery_tag']);
                         //echo 1;
                     } else {
-                        $time = date('Y-m-d H:i:s');
                         file_put_contents('/tmp/sms-filed.log', $time . '|' . $msg->body . "\r\n", FILE_APPEND);
                     }
                     break;
@@ -100,11 +101,7 @@ class ChannelController extends Controller
                     $curl = new Curl();
                     $url = \Yii::$app->params['socialUrl'].'/v1/vas/payznb';
                     $response = $curl->reset()
-                        ->setOption(
-                            CURLOPT_POSTFIELDS, http_build_query(
-                                $info
-                            )
-                        )
+                        ->setOption(CURLOPT_POSTFIELDS, http_build_query($info))
                         ->post($url);
                     $response = json_decode($response, true);
                     $ChinaepayLogModel = new ChinaepayLog();

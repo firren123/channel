@@ -17,6 +17,7 @@ return array(
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
     'linslin\\yii2\\curl\\' => array($vendorDir . '/linslin/yii2-curl'),
+    'hightman\\xunsearch\\' => array($vendorDir . '/hightman/xunsearch/wrapper/yii2-ext'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'PhpAmqpLib\\' => array($vendorDir . '/videlalvaro/php-amqplib/PhpAmqpLib'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),

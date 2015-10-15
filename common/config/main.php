@@ -19,33 +19,34 @@ return [
         ],
         'db'    => [
             'class'=>'yii\db\Connection',
-            'dsn'=>'mysql:host=118.186.247.55;dbname=shop',
+            'dsn'=>'mysql:host=127.0.0.1;dbname=shop',
             'username'=>'shop',
             'password'=>'shop',
             'charset'=>'utf8',
         ],
         'db_500m'    => [
             'class'=>'yii\db\Connection',
-            'dsn'=>'mysql:host=118.186.247.55;dbname=500m_new',
+            'dsn'=>'mysql:host=127.0.0.1;dbname=500m_new',
+            'username'=>'500m',
+            'password'=>'500m',
+            'charset'=>'utf8',
+        ],
+        'social'    => [
+            'class'=>'yii\db\Connection',
+            'dsn'=>'mysql:host=127.0.0.1;dbname=i500_social',
             'username'=>'500m',
             'password'=>'500m',
             'charset'=>'utf8',
         ],
         'mongodb' => [
             'class' => 'yii\mongodb\Connection',
-            'dsn' => 'mongodb://500m:trouCUs3hq1i@118.186.247.55:27017/shop',
+            'dsn' => 'mongodb://500m:trouCUs3hq1i@127.0.0.1:27017/shop',
         ],
         'sphinx' => [
             'class' => 'yii\sphinx\Connection',
-            'dsn' => 'mysql:host=118.186.247.55;port=9306;',
+            'dsn' => 'mysql:host=127.0.0.1;port=9306;',
             'username' => '',
             'password' => '',
-        ],
-        'user' => [
-            'identityClass' => 'common\models\Admin',
-            'enableAutoLogin' => true,
-
-            //'isGuest'=>false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -55,9 +56,6 @@ return [
                     'levels' => ['error', 'warning'],
                 ],
             ],
-        ],
-        'errorHandler' => [
-            'errorAction' => 'error/index',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -70,9 +68,11 @@ return [
 //                ['class' => 'yii\rest\UrlRule', 'controller' => ['user','shop']],
 //            ],
         ],
-        'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'ZZ9OX6n9bdunMW3iB-8IYdNGdJAnbMSp',
+
+        'xunsearch' => [
+            'class' => 'hightman\xunsearch\Connection', // 此行必须
+            'iniDirectory' => '@app/config',    // 搜索 ini 文件目录，默认：@vendor/hightman/xunsearch/app
+            'charset' => 'utf-8',   // 指定项目使用的默认编码，默认即时 utf-8，可不指定
         ],
     ],
 

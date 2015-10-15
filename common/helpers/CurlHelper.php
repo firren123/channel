@@ -1,6 +1,6 @@
 <?php
 /**
- * 简介1
+ * 公共方法
  *
  * PHP Version 5
  *
@@ -18,20 +18,20 @@
 namespace common\helpers;
 
 use linslin\yii2\curl\Curl;
+
 /**
- * Class CurlHelper
- * @category  PHP
- * @package   CurlHelper
- * @filename  CurlHelper
- * @copyright 2015 www
- * @license   http://www.i500m.com/ i500m license
- * @datetime  ${DATE} ${TIME}
- * @link      http://www.i500m.com/
+ * CurlHelper
+ *
+ * @category Admin
+ * @package  CurlHelper
+ * @author   lichenjun <lichenjun@iyangpin.com>
+ * @license  http://www.i500m.com/ license
+ * @link     lichenjun@iyangpin.com
  */
 class CurlHelper
 {
     /**
-     * 简介：
+     * 单行函数说明
      * @author  lichenjun@iyangpin.com。
      * @param string $app_key   xx
      * @param string $timestamp xx
@@ -55,6 +55,15 @@ class CurlHelper
         file_put_contents('/tmp/wap_data.log', var_export($data, true), FILE_APPEND);
         return md5(md5(md5($app_key . $timestamp) . md5($timestamp)) . md5($val));
     }
+
+    /**
+     * 单行函数说明
+     *
+     * @param string $url  url地址
+     * @param string $type 类型
+     *
+     * @return mixed
+     */
     public static function get($url = '', $type = 'server')
     {
         $host = '';
@@ -63,13 +72,13 @@ class CurlHelper
 
         $timestamp = time();
         $data = array();
-        if('server' == $type){
+        if ('server' == $type) {
             $host = \Yii::$app->params['serverUrl'];
             $ex = explode('?', $url);
-            if(isset($ex[1])){
+            if (isset($ex[1])) {
                 $param = explode('&', $ex[1]);
                 $data = array();
-                foreach($param as $k=>$v){
+                foreach ($param as $k => $v) {
                     $ex_v = explode('=', $v);
                     $data[$ex_v[0]] = $ex_v[1];
                 }
@@ -80,7 +89,7 @@ class CurlHelper
             } else {
                 $url .= '&appId=' . $app_id . '&timestamp=' . $timestamp . '&sign=' . $sign;
             }
-        }elseif('api' == $type){
+        } elseif ('api' == $type) {
             $access_token = \Yii::$app->params['access_token'];
             $host = \Yii::$app->params['apiUrl'];
             if (stripos($url, '?') === false) {
@@ -88,29 +97,37 @@ class CurlHelper
             } else {
                 $url .= '&access-token=' . $access_token;
             }
-        }else{
-
         }
         $url = strstr($url, 'http://') ? $url : $host.$url;
 
         $curl = new Curl();
         $response = $curl->get($url);
-        $response = json_decode($response,true);
+        $response = json_decode($response, true);
         return $response;
     }
 
-    public static function post($url = '', $post = array(), $type = 'server'){
+    /**
+     * 单行函数说明
+     *
+     * @param string $url  地址
+     * @param array  $post 数组
+     * @param string $type 类型
+     *
+     * @return mixed
+     */
+    public static function post($url = '', $post = array(), $type = 'server')
+    {
         $host = '';
         $app_id = \Yii::$app->params['appId'];
         $app_key = \Yii::$app->params['appKey'];
         $timestamp = time();
-        if('server' == $type){
+        if ($type == 'server') {
             $host = \Yii::$app->params['serverUrl'];
             $sign = self::_createSign($app_key, $timestamp, $post);
             $post['appId']      = $app_id;
             $post['timestamp']  = $timestamp;
             $post['sign']       = $sign;
-        }elseif('api' == $type){
+        } elseif ($type== 'api') {
             $host = \Yii::$app->params['apiUrl'];
             $access_token = \Yii::$app->params['access_token'];
             if (stripos($url, '?') === false) {
@@ -118,31 +135,27 @@ class CurlHelper
             } else {
                 $url .= '&access-token=' . $access_token;
             }
-        }else{
-
         }
         $url = strstr($url, 'http://') ? $url : $host.$url;
         $curl = new Curl();
         $response = $curl->reset()
-            ->setOption(
-                CURLOPT_POSTFIELDS,
-                http_build_query($post
-                ))
+            ->setOption(CURLOPT_POSTFIELDS, http_build_query($post))
             ->post($url);
         file_put_contents('/tmp/shop_response.log', $url."|结果".$response."\n\r", FILE_APPEND);
-        $response = json_decode($response,true);
+        $response = json_decode($response, true);
         return $response;
     }
 
     /**
      * 强制restful put 修改数据
-     * @param string $url url中需带要修改的id
-     * @param array $post
+     *
+     * @param string $url  地址
+     * @param array  $post 数组
+     *
      * @return mixed
      */
-    public static function put($url = '', $post = array()){
-
-
+    public static function put($url = '', $post = array())
+    {
         $host = \Yii::$app->params['apiUrl'];
         $access_token = \Yii::$app->params['access_token'];
         if (stripos($url, '?') === false) {
@@ -153,23 +166,21 @@ class CurlHelper
         $url = strstr($url, 'http://') ? $url : $host.$url;
         $curl = new Curl();
         $response = $curl->reset()
-            ->setOption(
-                CURLOPT_POSTFIELDS,
-                http_build_query($post)
-            )
+            ->setOption(CURLOPT_POSTFIELDS, http_build_query($post))
             ->put($url);
-        $response = json_decode($response,true);
+        $response = json_decode($response, true);
         return $response;
     }
 
     /**
-     * 删除 restful api
-     * @param string $url
+     *  删除 restful api
+     *
+     * @param string $url 地址
+     *
      * @return mixed
      */
-    public static function delete($url = ''){
-
-
+    public static function delete($url = '')
+    {
         $host = \Yii::$app->params['apiUrl'];
         $access_token = \Yii::$app->params['access_token'];
         if (stripos($url, '?') === false) {
@@ -180,7 +191,7 @@ class CurlHelper
         $url = strstr($url, 'http://') ? $url : $host.$url;
         $curl = new Curl();
         $response = $curl->delete($url);
-        $response = json_decode($response,true);
+        $response = json_decode($response, true);
         return $response;
     }
 }

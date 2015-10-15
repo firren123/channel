@@ -15,9 +15,7 @@
  * @link      http://www.i500m.com/
  */
 
-
 namespace console\models\i500m;
-
 
 /**
  * Class ChinaepayLog

@@ -24,7 +24,7 @@ namespace backend\models\i500m;
  * @license  http://www.i500m.com/ license
  * @link     renyineng@iyangpin.com
  */
-class Products extends I500Base
+class Products extends BaseFive
 {
     /**
      * 数据库
