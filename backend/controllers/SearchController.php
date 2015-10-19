@@ -63,6 +63,8 @@ class SearchController extends BaseController
         if (!empty($brand_id)) {
             $map['brand_id'] = $brand_id;
         }
+        $map['status'] = 1;
+        $map['single'] = 1;
         $price_map = [];
         if (!empty($price)) {
             $between = explode('-', $price);

@@ -171,7 +171,6 @@ class SyncController extends BaseController
                     $model->$k = $v;
                 }
                 $re = $model->save();
-
                 if ($re) {
                     $db = Product::getDb();
                     $db->getIndex()->flushIndex();
@@ -186,6 +185,47 @@ class SyncController extends BaseController
         }
         return $this->returnJsonMsg('101', [], '无效的参数id');
 
+    }
+
+    /**
+     * 商品批量操作 type 1 上架 2 下架 3 发布 4 取消发布
+     * @return json
+     */
+    public function actionBatchGoods()
+    {
+        $goods_id = RequestHelper::get('goods_id', '');
+        $type = RequestHelper::get('type', 0, 'intval');
+        if (!empty($goods_id)) {
+            $goods_data = explode(',', $goods_id);
+            if (!empty($goods_data)) {
+                if (in_array($type, [1, 2, 3, 4])) {
+                    if (in_array($type, [1, 2])) {//上下架
+                        $re = Product::updateAll(['status'=>$type], ['id'=>$goods_data]);
+
+
+                    } else {
+                        if ($type == 3) {
+                            $re = Product::updateAll(['single'=>1], ['id'=>$goods_data]);
+                        } else {
+                            $re = Product::updateAll(['single'=>2], ['id'=>$goods_data]);
+                        }
+
+                    }
+                    if ($re > 0) {
+                        $db = Product::getDb();
+                        $db->getIndex()->flushIndex();
+                    }
+                } else {
+                    return $this->returnJsonMsg('103', [], '类型id错误');
+                }
+
+
+            } else {
+                return $this->returnJsonMsg('102', [], '商家id错误');
+            }
+        } else {
+            return $this->returnJsonMsg('101', [], '无效的参数id');
+        }
     }
 
 }
