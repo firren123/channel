@@ -425,7 +425,8 @@ class BaseSDK{
      * 
      * @param array $curlOpts 用于内部http包装对象使用的全局curl参数.
      */
-    function __construct($curlOpts = array()) {
+    function __construct($curlOpts = array())
+    {
         date_default_timezone_set('Asia/Shanghai');
         self::$suppressException = BAIDU_PUSH_CONFIG::SUPPRESS_EXCPTION;
         $this -> log = new PushSimpleLog(BAIDU_PUSH_CONFIG::LOG_OUTPUT, BAIDU_PUSH_CONFIG::LOG_LEVEL);

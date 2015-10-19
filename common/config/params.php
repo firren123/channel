@@ -56,6 +56,16 @@ return [
         'exchange' => 'sms_exchange',
         'queue' => 'sms_queue'
     ],
+    'push'=> [
+        //商家APP
+        '7042569' => ['apiKey'=>'sURfZe54cEOmfGiyGB9gooGe','secretKey'=>'asuaacvrz1MnRUeGkacb1qtaono0syKG'],
+        //i500shop
+        '6582163'=>['apiKey'=>'FHtpcdKfOL1wTFbrZqVygusH','secretKey'=>'00lZHCmRtWxekkzMbR6CcDoNHPr88LXe'],
+        //Love500m
+        '6948103'=>['apiKey'=>'tGX2RVIi6gBTcSZreGjeswQC','secretKey'=>'cF1wkx9NEfyME0NfWpwSxM3aKG8aaU85'],
+        //i500m
+        '6555147'=>['apiKey'=>'7T8UiC2lro78mDnqkQlTSCfS','secretKey'=>'BXVtQMUqmZqrIZCHGCOiyLR9IlAWyW7L'],
+    ],
 
     //电网接口
     'socialUrl' => 'social.test.i500m.com',
