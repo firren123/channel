@@ -74,6 +74,12 @@ return [
             'iniDirectory' => '@app/config',    // 搜索 ini 文件目录，默认：@vendor/hightman/xunsearch/app
             'charset' => 'utf-8',   // 指定项目使用的默认编码，默认即时 utf-8，可不指定
         ],
+        'request' => [
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => 'ZIEF78AHhhkekr-wri32jgekjkwerkkjfwfwh',
+            'enableCookieValidation' => false,
+            'enableCsrfValidation' => FALSE,
+        ]
     ],
 
     'params' => $params,

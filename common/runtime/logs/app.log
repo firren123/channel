@@ -454,3 +454,54 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1434002028.838
     'REQUEST_TIME' => 1434002028
 ]
+2015-10-19 09:24:11 [-][-][-][error][yii\console\Exception] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "channel/add-msg".' in /Users/lichenjun/www/lintaozhisheng/git/channel/vendor/yiisoft/yii2/base/Module.php:461
+Stack trace:
+#0 /Users/lichenjun/www/lintaozhisheng/git/channel/vendor/yiisoft/yii2/console/Application.php(167): yii\base\Module->runAction('channel/add-msg', Array)
+#1 /Users/lichenjun/www/lintaozhisheng/git/channel/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('channel/add-msg', Array)
+#2 /Users/lichenjun/www/lintaozhisheng/git/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 /Users/lichenjun/www/lintaozhisheng/git/channel/yii(31): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\console\Exception' with message 'Unknown command "channel/add-msg".' in /Users/lichenjun/www/lintaozhisheng/git/channel/vendor/yiisoft/yii2/console/Application.php:169
+Stack trace:
+#0 /Users/lichenjun/www/lintaozhisheng/git/channel/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('channel/add-msg', Array)
+#1 /Users/lichenjun/www/lintaozhisheng/git/channel/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /Users/lichenjun/www/lintaozhisheng/git/channel/yii(31): yii\base\Application->run()
+#3 {main}
+2015-10-19 09:24:11 [-][-][-][info][application] $_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/zsh'
+    'LC_CTYPE' => 'zh_CN.UTF-8'
+    'TMPDIR' => '/var/folders/b6/dcf37vw9415g7z8t673b5k5w0000gn/T/'
+    'SECURITYSESSIONID' => '186a5'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x19:0x34'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/XAMPP/bin'
+    'XPC_FLAGS' => '0x0'
+    'COMMAND_MODE' => 'unix2003'
+    'USER' => 'lichenjun'
+    'HOME' => '/Users/lichenjun'
+    'LOGNAME' => 'lichenjun'
+    'XPC_SERVICE_NAME' => '0'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.OW0wR8gorY/Render'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.LiZeBQSXQh/Listeners'
+    'SHLVL' => '1'
+    'PWD' => '/Users/lichenjun/www/lintaozhisheng/git/channel'
+    'OLDPWD' => '/Users/lichenjun/www/lintaozhisheng/git/channel'
+    'ZSH' => '/Users/lichenjun/.oh-my-zsh'
+    'PAGER' => 'less'
+    'LESS' => '-R'
+    'LSCOLORS' => 'Gxfxcxdxbxegedabagacad'
+    '_' => '/Users/lichenjun/www/lintaozhisheng/git/channel/./yii'
+    'PHP_SELF' => './yii'
+    'SCRIPT_NAME' => './yii'
+    'SCRIPT_FILENAME' => './yii'
+    'PATH_TRANSLATED' => './yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1445246651.028
+    'REQUEST_TIME' => 1445246651
+    'argv' => [
+        0 => './yii'
+        1 => 'channel/add-msg'
+    ]
+    'argc' => 2
+]
