@@ -48,7 +48,7 @@ return [
     'dadaAppKey'=>'dada1dbe3d32305c295b',
 
     'mq' => [
-        'host' => '127.0.0.1',
+        'host' => '172.16.12.40',
         'port' => '5672',
         'user' => '500m',
         'pass' => 'gbjY51Rpstx',
