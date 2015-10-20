@@ -205,7 +205,58 @@ class SyncController extends BaseController
 
                     } else {
                         if ($type == 3) {
-                            $re = Product::updateAll(['single'=>1], ['id'=>$goods_data]);
+                            $fields = [
+                                'id',
+                                'name',
+                                'title',
+                                'description',
+                                'cate_first_id',
+                                'cate_second_id',
+                                'brand_id',
+                                'total_num',
+                                'warning_num',
+                                'origin_price',
+                                'sale_price',
+                                'status',
+                                'create_time',
+                                'single',
+                                'bar_code',
+                                'attr_value',
+                                'shop_price',
+                                'sale_profit_margin',
+                                'sales_num',
+                                'image'
+                            ];
+                            //批量发布的时候判断是否有索引 没有的话插入
+                            $empty_ids = [];
+                            foreach ($goods_data as $k => $v) {
+                                $model = Product::findOne($v);
+                                if (empty($model)) {
+                                    $empty_ids[] = $v;
+
+
+                                }
+                            }
+                            $p_model = new Products();
+                            if (!empty($empty_ids)) {
+                                $goods_list = $p_model->getList(['id'=>$empty_ids], $fields);
+                                if (!empty($goods_list)) {
+                                    $model = new Product();
+                                    foreach ($goods_list as  $item) {
+                                        //$model = clone $model;
+                                        // var_dump($item);//exit();
+                                        foreach ($item as $k => $v) {
+                                            $model->$k = $v;
+                                        }
+                                        $re = $model->save();
+                                        // var_dump($re);
+                                    }
+
+                                }
+                            }
+
+
+                            //$re = Product::updateAll(['single'=>1], ['id'=>$goods_data]);
                         } else {
                             $re = Product::updateAll(['single'=>2], ['id'=>$goods_data]);
                         }

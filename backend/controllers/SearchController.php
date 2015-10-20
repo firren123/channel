@@ -143,6 +143,13 @@ class SearchController extends BaseController
         }
 
     }
+    public function actionShow()
+    {
+        $id = RequestHelper::get('id', '');
+        $show = Product::find()->where(['id'=>$id])->asArray()->one();
+        //$show = Product::findOne($id);
+        var_dump($show);
+    }
     public function actionTest()
     {
         $keywords = RequestHelper::get('keywords', '');
