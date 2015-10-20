@@ -228,13 +228,13 @@ class SyncController extends BaseController
                                 'image'
                             ];
                             //批量发布的时候判断是否有索引 没有的话插入
-                            $empty_ids = [];
+                            $empty_ids = $exist_ids = [];
                             foreach ($goods_data as $k => $v) {
                                 $model = Product::findOne($v);
                                 if (empty($model)) {
                                     $empty_ids[] = $v;
-
-
+                                } else {
+                                    $exist_ids[] = $v;
                                 }
                             }
                             $p_model = new Products();
@@ -254,9 +254,10 @@ class SyncController extends BaseController
 
                                 }
                             }
+                            if (!empty($exist_ids)) {
+                                $re = Product::updateAll(['single'=>1], ['id'=>$exist_ids]);
+                            }
 
-
-                            //$re = Product::updateAll(['single'=>1], ['id'=>$goods_data]);
                         } else {
                             $re = Product::updateAll(['single'=>2], ['id'=>$goods_data]);
                         }
