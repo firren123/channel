@@ -76,6 +76,7 @@ class PushController extends BaseController
         $channelId = RequestHelper::post('channel_id');
         $description = RequestHelper::post('description');
         $title = RequestHelper::post('title');
+        $device = RequestHelper::post('device',0,'intval');
         $channel_type = RequestHelper::post('channel_type', 0, 'intval');
         if ($channelId == '' || $description == '' || $title == ''||$channel_type == 0) {
             echo json_encode(array('code'=>101, 'data'=>'', 'msg'=>'缺少字段'));
@@ -86,15 +87,27 @@ class PushController extends BaseController
             echo json_encode(array('code' => 101, 'data' => '', 'msg' => '推送渠道错误'));
             exit;
         }
+        if (!in_array($device, [1, 2])) {
+            echo json_encode(array('code' => 101, 'data' => '', 'msg' => '推送设备错误'));
+            exit;
+        }
         $apiKey = \Yii::$app->params['push'][$this->channel_type[$channel_type]]['apiKey'];
         $secretKey = \Yii::$app->params['push'][$this->channel_type[$channel_type]]['secretKey'];
         $push = new PushSDK($apiKey, $secretKey);
-        $message = [
-            'description'=> $description,
-            'title' => $title
-        ];
-        if ($custom_content) {
-            $message['custom_content'] = $custom_content;
+        if ($device == 1) {
+            $message = [
+                'description' => $description,
+                'title' => $title
+            ];
+            if ($custom_content) {
+                $message['custom_content'] = $custom_content;
+            }
+        } else {
+            $message = $custom_content;
+            $message['aps'] = [
+                'alert' => $description,
+
+            ];
         }
         // 设置消息类型为 通知类型.
         $opts = array(
