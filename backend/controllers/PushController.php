@@ -46,6 +46,8 @@ class PushController extends BaseController
         //i500m
         //'6555147'=>['apiKey'=>'7T8UiC2lro78mDnqkQlTSCfS','secretKey'=>'BXVtQMUqmZqrIZCHGCOiyLR9IlAWyW7L'],
         4 => '6555147',
+        //'7085276'=>['apiKey'=>'qWYGnwdcE79Fm1YDr7XpUD2C','secretKey'=>'MUdxStXBZvUkWa0vhr2ENhbGbKTzS8mS'],
+        5 => '7085276',
     ];
     /**
      * 简介：

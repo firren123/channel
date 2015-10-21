@@ -65,6 +65,8 @@ return [
         '6948103'=>['apiKey'=>'tGX2RVIi6gBTcSZreGjeswQC','secretKey'=>'cF1wkx9NEfyME0NfWpwSxM3aKG8aaU85'],
         //i500m
         '6555147'=>['apiKey'=>'7T8UiC2lro78mDnqkQlTSCfS','secretKey'=>'BXVtQMUqmZqrIZCHGCOiyLR9IlAWyW7L'],
+        //iOS_Shop_Alpha
+        '7085276'=>['apiKey'=>'qWYGnwdcE79Fm1YDr7XpUD2C','secretKey'=>'MUdxStXBZvUkWa0vhr2ENhbGbKTzS8mS'],
     ],
 
     //电网接口
