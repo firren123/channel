@@ -171,7 +171,6 @@ class SyncController extends BaseController
                     $model->$k = $v;
                 }
                 $re = $model->save();
-
                 if ($re) {
                     $db = Product::getDb();
                     $db->getIndex()->flushIndex();
@@ -186,6 +185,99 @@ class SyncController extends BaseController
         }
         return $this->returnJsonMsg('101', [], '无效的参数id');
 
+    }
+
+    /**
+     * 商品批量操作 type 1 上架 2 下架 3 发布 4 取消发布
+     * @return json
+     */
+    public function actionBatchGoods()
+    {
+        $goods_id = RequestHelper::get('goods_id', '');
+        $type = RequestHelper::get('type', 0, 'intval');
+        if (!empty($goods_id)) {
+            $goods_data = explode(',', $goods_id);
+            if (!empty($goods_data)) {
+                if (in_array($type, [1, 2, 3, 4])) {
+                    if (in_array($type, [1, 2])) {//上下架
+                        $re = Product::updateAll(['status'=>$type], ['id'=>$goods_data]);
+
+
+                    } else {
+                        if ($type == 3) {
+                            $fields = [
+                                'id',
+                                'name',
+                                'title',
+                                'description',
+                                'cate_first_id',
+                                'cate_second_id',
+                                'brand_id',
+                                'total_num',
+                                'warning_num',
+                                'origin_price',
+                                'sale_price',
+                                'status',
+                                'create_time',
+                                'single',
+                                'bar_code',
+                                'attr_value',
+                                'shop_price',
+                                'sale_profit_margin',
+                                'sales_num',
+                                'image'
+                            ];
+                            //批量发布的时候判断是否有索引 没有的话插入
+                            $empty_ids = $exist_ids = [];
+                            foreach ($goods_data as $k => $v) {
+                                $model = Product::findOne($v);
+                                if (empty($model)) {
+                                    $empty_ids[] = $v;
+                                } else {
+                                    $exist_ids[] = $v;
+                                }
+                            }
+                            $p_model = new Products();
+                            if (!empty($empty_ids)) {
+                                $goods_list = $p_model->getList(['id'=>$empty_ids], $fields);
+                                if (!empty($goods_list)) {
+                                    $model = new Product();
+                                    foreach ($goods_list as  $item) {
+                                        //$model = clone $model;
+                                        // var_dump($item);//exit();
+                                        foreach ($item as $k => $v) {
+                                            $model->$k = $v;
+                                        }
+                                        $re = $model->save();
+                                        // var_dump($re);
+                                    }
+
+                                }
+                            }
+                            if (!empty($exist_ids)) {
+                                $re = Product::updateAll(['single'=>1], ['id'=>$exist_ids]);
+                            }
+
+                        } else {
+                            $re = Product::updateAll(['single'=>2], ['id'=>$goods_data]);
+                        }
+
+                    }
+                    if ($re > 0) {
+                        $db = Product::getDb();
+                        $db->getIndex()->flushIndex();
+                    }
+                } else {
+                    return $this->returnJsonMsg('103', [], '类型id错误');
+                }
+
+
+            } else {
+                return $this->returnJsonMsg('102', [], '商家id错误');
+            }
+        } else {
+            return $this->returnJsonMsg('101', [], '无效的参数id');
+        }
     }
 
 }
