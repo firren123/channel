@@ -68,6 +68,13 @@ return [
         //iOS_Shop_Alpha
         '7085276'=>['apiKey'=>'qWYGnwdcE79Fm1YDr7XpUD2C','secretKey'=>'MUdxStXBZvUkWa0vhr2ENhbGbKTzS8mS'],
     ],
+    'ios_push_opts'=>[
+        'msg_type' => 1,     //0：透传消息 1：通知
+        'deploy_status'=>1
+    ],
+    'android_push_opts'=>[
+        'msg_type' => 1,     //0：透传消息 1：通知
+    ],
 
     //电网接口
     'socialUrl' => 'social.test.i500m.com',

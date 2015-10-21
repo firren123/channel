@@ -102,17 +102,16 @@ class PushController extends BaseController
             if ($custom_content) {
                 $message['custom_content'] = $custom_content;
             }
+            // 设置消息类型为 通知类型.
+            $opts = \Yii::$app->params['android_push_opts'];
         } else {
             $message = $custom_content;
             $message['aps'] = [
                 'alert' => $description,
-
             ];
+            // 设置消息类型为 通知类型.
+            $opts = \Yii::$app->params['ios_push_opts'];
         }
-        // 设置消息类型为 通知类型.
-        $opts = array(
-            'msg_type' => 1,     //0：透传消息 1：通知
-        );
         // 向目标设备发送一条消息
         $rs = $push->pushMsgToSingleDevice($channelId, $message, $opts);
         // 判断返回值,当发送失败时, $rs的结果为false, 可以通过getError来获得错误信息.
