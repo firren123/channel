@@ -17,6 +17,7 @@
 
 
 namespace backend\controllers;
+
 use common\helpers\RequestHelper;
 use common\vendor\Push\PushSDK;
 
@@ -32,6 +33,22 @@ use common\vendor\Push\PushSDK;
 
 class PushController extends BaseController
 {
+    public $channel_type = [
+        //商家APP
+        //'7042569' => ['apiKey'=>'sURfZe54cEOmfGiyGB9gooGe','secretKey'=>'asuaacvrz1MnRUeGkacb1qtaono0syKG'],
+        1 => '7042569',
+        //i500shop
+        //'6582163'=>['apiKey'=>'FHtpcdKfOL1wTFbrZqVygusH','secretKey'=>'00lZHCmRtWxekkzMbR6CcDoNHPr88LXe'],
+        2 => '6582163',
+        //Love500m
+        //'6948103'=>['apiKey'=>'tGX2RVIi6gBTcSZreGjeswQC','secretKey'=>'cF1wkx9NEfyME0NfWpwSxM3aKG8aaU85'],
+        3 => '6948103',
+        //i500m
+        //'6555147'=>['apiKey'=>'7T8UiC2lro78mDnqkQlTSCfS','secretKey'=>'BXVtQMUqmZqrIZCHGCOiyLR9IlAWyW7L'],
+        4 => '6555147',
+        //'7085276'=>['apiKey'=>'qWYGnwdcE79Fm1YDr7XpUD2C','secretKey'=>'MUdxStXBZvUkWa0vhr2ENhbGbKTzS8mS'],
+        5 => '7085276',
+    ];
     /**
      * 简介：
      * @author  lichenjun@iyangpin.com。
@@ -44,6 +61,7 @@ class PushController extends BaseController
         } else {
             parent::init();
         }
+
     }
 
     /**
@@ -58,23 +76,42 @@ class PushController extends BaseController
         $channelId = RequestHelper::post('channel_id');
         $description = RequestHelper::post('description');
         $title = RequestHelper::post('title');
-        if ($channelId == '' || $description == '' || $title == '') {
+        $device = RequestHelper::post('device',0,'intval');
+        $channel_type = RequestHelper::post('channel_type', 0, 'intval');
+        if ($channelId == '' || $description == '' || $title == ''||$channel_type == 0) {
             echo json_encode(array('code'=>101, 'data'=>'', 'msg'=>'缺少字段'));
             exit;
         }
         $custom_content = RequestHelper::post('custom_content');
-        $push = new PushSDK();
-        $message = [
-            'description'=> $description,
-            'title' => $title
-        ];
-        if ($custom_content) {
-            $message['custom_content'] = $custom_content;
+        if (!isset($this->channel_type[$channel_type])) {
+            echo json_encode(array('code' => 101, 'data' => '', 'msg' => '推送渠道错误'));
+            exit;
         }
-        // 设置消息类型为 通知类型.
-        $opts = array(
-            'msg_type' => 1,     //0：透传消息 1：通知
-        );
+        if (!in_array($device, [1, 2])) {
+            echo json_encode(array('code' => 101, 'data' => '', 'msg' => '推送设备错误'));
+            exit;
+        }
+        $apiKey = \Yii::$app->params['push'][$this->channel_type[$channel_type]]['apiKey'];
+        $secretKey = \Yii::$app->params['push'][$this->channel_type[$channel_type]]['secretKey'];
+        $push = new PushSDK($apiKey, $secretKey);
+        if ($device == 1) {
+            $message = [
+                'description' => $description,
+                'title' => $title
+            ];
+            if ($custom_content) {
+                $message['custom_content'] = $custom_content;
+            }
+            // 设置消息类型为 通知类型.
+            $opts = \Yii::$app->params['android_push_opts'];
+        } else {
+            $message = $custom_content;
+            $message['aps'] = [
+                'alert' => $description,
+            ];
+            // 设置消息类型为 通知类型.
+            $opts = \Yii::$app->params['ios_push_opts'];
+        }
         // 向目标设备发送一条消息
         $rs = $push->pushMsgToSingleDevice($channelId, $message, $opts);
         // 判断返回值,当发送失败时, $rs的结果为false, 可以通过getError来获得错误信息.

@@ -8,7 +8,7 @@ Thumbs.db
 phpunit.phar
 # runtime
 web/assets/
-
+common/config/
 # mac
 .DS_Store
 */runtime/

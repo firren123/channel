@@ -63,6 +63,8 @@ class SearchController extends BaseController
         if (!empty($brand_id)) {
             $map['brand_id'] = $brand_id;
         }
+        $map['status'] = 1;
+        $map['single'] = 1;
         $price_map = [];
         if (!empty($price)) {
             $between = explode('-', $price);
@@ -140,6 +142,13 @@ class SearchController extends BaseController
             return $this->returnJsonMsg(101, [], '请输入关键词');
         }
 
+    }
+    public function actionShow()
+    {
+        $id = RequestHelper::get('id', '');
+        $show = Product::find()->where(['id'=>$id])->asArray()->one();
+        //$show = Product::findOne($id);
+        var_dump($show);
     }
     public function actionTest()
     {

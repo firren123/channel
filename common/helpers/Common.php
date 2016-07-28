@@ -184,4 +184,21 @@ class Common
         }
         return $table_name;
     }
+    /**
+     * 计算经纬度距离
+     * @param float $lon1 原点经度
+     * @param float $lat1 原点纬度
+     * @param float $lon2 目标点经度
+     * @param float $lat2 目标点纬度
+     * @return float 两点大致距离，单位：米
+     */
+    public static function geoDistance($lon1, $lat1, $lon2, $lat2)
+    {
+        $dx = $lon1 - $lon2;
+        $dy = $lat1 - $lat2;
+        $b = ($lat1 + $lat2) / 2;
+        $lx = 6367000.0 * deg2rad($dx) * cos(deg2rad($b));
+        $ly = 6367000.0 * deg2rad($dy);
+        return sqrt($lx * $lx + $ly * $ly);
+    }
 }
